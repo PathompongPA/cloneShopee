@@ -1,0 +1,71 @@
+#boxLoginComponent {
+  #boxLogin {
+    margin-top: 5rem;
+    flex-direction: column;
+    border: 3px solid rgb(230, 230, 230);
+    border-radius: 1rem;
+    padding: 5rem;
+    #boxTitleLogin {
+      margin-bottom: 2rem;
+    }
+    #boxFormLogin {
+      #boxInputUserName {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 0.5rem;
+        border: 1px solid rgb(77, 77, 77);
+        border-radius: 2rem;
+        width: 12rem;
+        height: 1.5rem;
+        padding: 0.5rem;
+      }
+      #boxInputPassword {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 0.5rem;
+        border: 1px solid rgb(77, 77, 77);
+        border-radius: 2rem;
+        width: 12rem;
+        height: 1.5rem;
+        padding: 0.5rem;
+
+        #inputPassword {
+        }
+        #ShowPassword {
+          /* border: 1px solid black; */
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 3rem;
+          font-style: oblique;
+          font-weight: bold;
+          font-size: x-small;
+          color: rgb(153, 153, 153);
+        }
+      }
+      #boxSubmitLogin {
+        #SubmitLogin {
+          margin-top: 0.5rem;
+          margin-bottom: 0.5rem;
+          border: 1px solid rgb(77, 77, 77);
+          border-radius: 2rem;
+          padding: 0.8rem;
+          width: 12rem;
+        }
+      }
+    }
+  }
+}
+
+input {
+  width: 100%;
+  padding: 0.5rem;
+}
+input:focus {
+  outline: none;
+}
+#ShowPassword:hover {
+  cursor: pointer;
+}
