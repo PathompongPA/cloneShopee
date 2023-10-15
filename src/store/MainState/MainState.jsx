@@ -9,27 +9,22 @@ let initial = {
     {
       path: "/",
       title: "logo",
-      onclick: "",
     },
     {
       path: "/",
       title: "home",
-      onclick: "",
     },
     {
       path: "/product",
       title: "product",
-      onclick: "",
     },
     {
       path: "/about",
       title: "about",
-      onclick: "",
     },
     {
       path: "/login",
       title: "login",
-      onclick: "",
     },
   ],
 };

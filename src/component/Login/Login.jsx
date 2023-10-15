@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef } from "react";
 import "./Login.css";
 import { SomeDate } from "../../App";
 import { useNavigate } from "react-router-dom";
@@ -8,7 +8,6 @@ export default function LoginComponent() {
   const elementInputUserName = useRef();
   const elementShowPassword = useRef();
   const navigate = useNavigate();
-  const [, forceRender] = useState(undefined);
   const { state, dispatch } = useContext(SomeDate);
 
   function SubmitLogin(e) {

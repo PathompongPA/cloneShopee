@@ -34,27 +34,22 @@ function reducer(state, action) {
           {
             path: "/",
             title: "logo",
-            onclick: "",
           },
           {
             path: "/",
             title: "home",
-            onclick: "",
           },
           {
             path: "/product",
             title: "product",
-            onclick: "",
           },
           {
             path: "/about",
             title: "about",
-            onclick: "",
           },
           {
-            path: "/",
+            path: 0,
             title: "logout",
-            onclick: "LogoutFunction",
           },
         ],
       };

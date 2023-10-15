@@ -30,7 +30,7 @@ const TitleNavbar = [
     title: "login",
   },
   {
-    path: "/",
+    path: 0,
     title: "logout",
   },
 ];
