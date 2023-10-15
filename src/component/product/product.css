@@ -7,7 +7,7 @@
     display: grid;
     grid-template-columns: repeat(5, 20%);
     .boxProduct {
-      border: 2px solid rgb(220, 220, 220);
+      border: 3px solid rgb(230, 230, 230);
       border-radius: 0.5rem;
       width: 200px;
       display: flex;
@@ -17,18 +17,27 @@
       margin: 0.2rem;
       #boxProductImage {
         #ShowDiscount {
-          margin-left: 0.3rem;
-          width: 45px;
-          height: 50px;
+          margin-left: 0.4rem;
+          width: 40px;
+          height: 45px;
           background-color: rgb(230, 230, 77);
-          color: rgb(255, 51, 51);
           display: flex;
+          flex-direction: column;
           justify-content: center;
           align-items: center;
-          font-size: small;
-          font-weight: bolder;
           position: absolute;
           z-index: 0;
+          #decrease {
+            padding-top: 0.5rem;
+            color: white;
+            font-size: smaller;
+          }
+          #discountPercentage {
+            font-weight: bold;
+            color: rgb(255, 45, 0);
+            font-size: medium;
+            padding-bottom: 0.5rem;
+          }
         }
         .image-product {
           object-fit: cover;
@@ -52,20 +61,37 @@
         color: rgb(77, 77, 77);
         margin-bottom: 1rem;
         display: flex;
-        flex-direction: row;
-        #price-left {
-          width: 50%;
-          justify-content: start;
+        flex-direction: column;
+        #boxPriceOld {
+          margin-top: 0.5rem;
+          width: 100%;
+          padding-left: 2rem;
+          #priceOld {
+            font-size: 10px;
+            color: rgb(255, 51, 0);
+            text-decoration: line-through;
+          }
         }
-        #price-right {
-          width: 50%;
+        #boxPriceDiscount {
           display: flex;
-          justify-content: end;
+          justify-content: center;
+          width: 100%;
+          #price-left {
+            width: 50%;
+            justify-content: start;
+            font-weight: bolder;
+          }
+          #price-right {
+            width: 50%;
+            display: flex;
+            justify-content: end;
+            color: rgb(102, 179, 26);
+          }
         }
       }
     }
     .boxProduct:hover {
-      border: 2px solid rgb(0, 128, 128);
+      border: 3px solid rgb(0, 128, 128);
       cursor: pointer;
     }
   }

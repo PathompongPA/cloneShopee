@@ -38,8 +38,12 @@ export default function ProductComponent() {
               >
                 <div id="boxProductImage">
                   <div id="ShowDiscount">
-                    {props.discountPercentage.toFixed(0)} %
-                    <span key={"decrease" + props.title}></span>
+                    <span id="decrease" key={"decrease" + props.title}>
+                      ลด
+                    </span>
+                    <span id="discountPercentage">
+                      {props.discountPercentage.toFixed(0)}%
+                    </span>
                   </div>
                   <img
                     className="image-product"
@@ -52,11 +56,25 @@ export default function ProductComponent() {
                   {props.title}
                 </div>
                 <div id="price" key={"price" + props.price}>
-                  <div id="price-left" key={"price" + props.price + "left"}>
-                    {props.price} ฿
-                  </div>
-                  <div id="price-right" key={"price" + props.price + "right"}>
-                    in stork{" "}
+                  {props.discountPercentage && (
+                    <div id="boxPriceOld">
+                      <div id="priceOld" key={"price" + props.price + "left"}>
+                        ฿{props.price * 30}
+                      </div>
+                    </div>
+                  )}
+                  <div id="boxPriceDiscount">
+                    <div id="price-left" key={"price" + props.price + "left"}>
+                      ฿{" "}
+                      {(
+                        props.price *
+                        ((100 - props.discountPercentage) / 100) *
+                        30
+                      ).toLocaleString(undefined, { maximumFractionDigits: 0 })}
+                    </div>
+                    <div id="price-right" key={"price" + props.price + "right"}>
+                      in stork{" "}
+                    </div>
                   </div>
                 </div>
               </Link>
