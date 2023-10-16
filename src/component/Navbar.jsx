@@ -4,12 +4,8 @@ import { useContext } from "react";
 import { SomeDate } from "../App";
 
 export default function Navbar() {
-  const { state, dispatch } = useContext(SomeDate);
+  const { state } = useContext(SomeDate);
   const navigate = useNavigate();
-
-  // function clickLogout() {
-  //   console.log("clickLogout");
-  // }
 
   return (
     <ul id="navbar" className="h3">
@@ -27,7 +23,7 @@ export default function Navbar() {
               className="TitleNavbarShow"
               key={props.title}
             >
-              {props.title}
+              <Link>{props.title}</Link>
             </li>
           );
         })}

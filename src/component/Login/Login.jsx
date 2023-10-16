@@ -1,5 +1,5 @@
-import { useContext, useEffect, useRef } from "react";
 import "./Login.css";
+import { useContext, useEffect, useRef } from "react";
 import { SomeDate } from "../../App";
 import { useNavigate } from "react-router-dom";
 
@@ -35,7 +35,7 @@ export default function LoginComponent() {
   useEffect(() => {
     console.log("LoginComponent : start");
     console.log(state);
-  }, []);
+  }, [state]);
 
   return (
     <div id="boxLoginComponent" className="boxComponent Content">

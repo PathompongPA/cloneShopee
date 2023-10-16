@@ -12,6 +12,7 @@ export default function ShowProduct() {
   console.log("state : ", state.ProductDummy);
 
   useEffect(() => {
+    dispatch({ type: "clear-count" });
     GetApi("https://dummyjson.com/products/" + id, "GET").then((result) => {
       console.log(result);
     });
@@ -58,6 +59,28 @@ export default function ShowProduct() {
           </div>
           <div id="showProductPrice">
             {state.ProductDummy && state.ProductDummy.products[id - 1].price} ฿
+          </div>
+          <div id="boxAddItem">
+            จำนวน
+            <button
+              id="decreaseItem"
+              onClick={() => {
+                dispatch({ type: "decrease" });
+              }}
+            >
+              {" "}
+              -
+            </button>
+            {state.count}
+            <button
+              id="increaseItem"
+              onClick={() => {
+                dispatch({ type: "increase" });
+              }}
+            >
+              {" "}
+              +
+            </button>
           </div>
         </div>
       </div>
