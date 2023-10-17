@@ -1,6 +1,11 @@
 function reducer(state, action) {
   switch (action.type) {
     case "increase":
+      if (
+        state.count === state.ProductDummy.products[action.payload - 1].stock
+      ) {
+        return state;
+      }
       return {
         ...state,
         count: state.count++,
@@ -59,11 +64,53 @@ function reducer(state, action) {
         ...state,
         product: [...state.product, action.payload],
       };
+
     case "setDateProduct":
       return {
         ...state,
         ProductDummy: action.payload,
       };
+
+    case "setShowProduct":
+      return {
+        ...state,
+        ShowProduct: action.payload,
+      };
+
+    case "clearShowProduct":
+      return {
+        ...state,
+        ShowProduct: undefined,
+      };
+
+    case "add-Favorite":
+      if (state.Favorite === undefined) {
+        return {
+          ...state,
+          Favorite: [action.payload],
+        };
+      }
+
+      if (
+        state.Favorite.findIndex(
+          (element) => element.id === action.payload.id
+        ) !== -1
+      ) {
+        return {
+          ...state,
+          Favorite: state.Favorite.filter(
+            (element) => element.id !== action.payload.id
+          ),
+        };
+      }
+
+      return {
+        ...state,
+        Favorite: [...state.Favorite, action.payload],
+      };
+
+    case "delete-Favorite":
+      return {};
 
     default:
       return state;

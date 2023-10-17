@@ -8,25 +8,27 @@ export default function Navbar() {
   const navigate = useNavigate();
 
   return (
-    <ul id="navbar" className="h3">
-      {state.titleNavbar &&
-        state.titleNavbar.map((props) => {
-          if (state.titleNavbar.title === "logout") {
-            console.log("logout");
-          }
-          return (
-            <li
-              id={props.title}
-              onClick={() => {
-                navigate(props.path);
-              }}
-              className="TitleNavbarShow"
-              key={props.title}
-            >
-              <Link>{props.title}</Link>
-            </li>
-          );
-        })}
+    <ul id="navbar" className="h4">
+      <div id="boxNavbar">
+        {state.titleNavbar &&
+          state.titleNavbar.map((props) => {
+            if (state.titleNavbar.title === "logout") {
+              console.log("logout");
+            }
+            return (
+              <li
+                id={props.title}
+                onClick={() => {
+                  navigate(props.path);
+                }}
+                className="TitleNavbarShow"
+                key={props.title}
+              >
+                <Link>{props.title}</Link>
+              </li>
+            );
+          })}
+      </div>
     </ul>
   );
 }

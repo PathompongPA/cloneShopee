@@ -13,17 +13,16 @@ export default function ProductComponent() {
     GetApi(url, "GET").then(async (result) => {
       await dispatch({ type: "setDateProduct", payload: result });
     });
-    console.log("start ProductComponent : ", state.ProductDummy);
-  }, []);
+  }, [dispatch]);
 
   function ShowProduct(e) {
     const data = e.currentTarget.getAttribute("data");
     const id = e.currentTarget.getAttribute("data-id");
-    console.log("ShowProduct title : ", data, " id : ", id);
     navigate(`/product/${id}/${data.replace(/\s/g, "")}`);
   }
+
   return (
-    <div id="boxProductComponent" className="boxComponent">
+    <div id="boxProductComponent" className="boxComponent pdt1">
       <div id="boxProductShow">
         {state.ProductDummy &&
           state.ProductDummy.products.map((props) => {
@@ -73,7 +72,7 @@ export default function ProductComponent() {
                       ).toLocaleString(undefined, { maximumFractionDigits: 0 })}
                     </div>
                     <div id="price-right" key={"price" + props.price + "right"}>
-                      in stork{" "}
+                      in stork {props.stock}
                     </div>
                   </div>
                 </div>
