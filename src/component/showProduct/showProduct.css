@@ -1,3 +1,6 @@
+#boxLoader {
+  display: flex;
+}
 #boxShowProduct {
   display: flex;
   flex-direction: column;
@@ -119,12 +122,11 @@
           display: flex;
           justify-content: flex-end;
           #heart {
-            color: black;
           }
           .addFavorite {
             color: red;
           }
-          .noFavorites {
+          .noFavorite {
             color: black;
           }
         }

@@ -1,7 +1,4 @@
+import "./Loader.css";
 export default function LoaderComponent() {
-  return (
-    <div id="LoaderComponent" className="boxComponent">
-      Loader Component
-    </div>
-  );
+  return <div id="LoaderComponent">Loader Component</div>;
 }

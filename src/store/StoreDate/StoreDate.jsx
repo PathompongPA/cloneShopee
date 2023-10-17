@@ -1,5 +1,7 @@
 import {
+  CartComponent,
   Content,
+  FavoriteComponent,
   LoginComponent,
   ProductComponent,
   ShowProduct,
@@ -7,33 +9,6 @@ import {
 import ErrorComponent from "../../component/Error";
 import { LoginTemplate } from "../../template";
 import Main from "../../template/main";
-
-const TitleNavbar = [
-  {
-    path: "/",
-    title: "logo",
-  },
-  {
-    path: "/",
-    title: "home",
-  },
-  {
-    path: "/product",
-    title: "product",
-  },
-  {
-    path: "/about",
-    title: "about",
-  },
-  {
-    path: "/login",
-    title: "login",
-  },
-  {
-    path: 0,
-    title: "logout",
-  },
-];
 
 const RootRouter = [
   {
@@ -44,7 +19,8 @@ const RootRouter = [
       { path: "home", element: <ProductComponent /> },
       { path: "product", element: <ProductComponent /> },
       { path: "product/:id/:name", element: <ShowProduct /> },
-      { path: "about", element: <Content /> },
+      { path: "favorite", element: <FavoriteComponent /> },
+      { path: "cart", element: <CartComponent /> },
     ],
   },
   {
@@ -55,4 +31,4 @@ const RootRouter = [
   { path: "*", element: <ErrorComponent /> },
 ];
 
-export { TitleNavbar, RootRouter };
+export { RootRouter };

@@ -19,12 +19,12 @@ let initial = {
       title: "product",
     },
     {
-      path: "/about",
-      title: "about",
+      path: "/favorite",
+      title: "favorite",
     },
     {
-      path: "/login",
-      title: "login",
+      path: "/cart",
+      title: "cart",
     },
   ],
 };

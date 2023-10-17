@@ -1,0 +1,139 @@
+.boxCard {
+  margin: 0.2rem;
+  color: black;
+  border: 3px solid rgb(230, 230, 230);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 200px;
+  height: 340px;
+  background-color: white;
+  #boxImageCard {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    #ShowDiscount {
+      right: 0.5rem;
+      top: 0;
+      width: 40px;
+      height: 45px;
+      background-color: rgb(230, 230, 0);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      z-index: 0;
+
+      #decrease {
+        padding-top: 0.5rem;
+        color: white;
+        font-size: smaller;
+      }
+
+      #discountPercentage {
+        font-weight: bold;
+        color: rgb(255, 45, 0);
+        font-size: medium;
+        padding-bottom: 0.5rem;
+      }
+    }
+
+    #boxHeart {
+      width: 40px;
+      height: 40px;
+      z-index: 0;
+      top: 5px;
+      left: 5px;
+      position: absolute;
+      #Heart {
+      }
+
+      #Heart::before,
+      #Heart::after {
+        top: 12px;
+        left: 9px;
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 28px;
+        border-radius: 50px 50px 0 0;
+        background: rgb(255, 51, 51);
+      }
+
+      #Heart::before {
+        transform: rotate(-45deg);
+        transform-origin: left center;
+      }
+
+      #Heart::after {
+        transform: rotate(45deg);
+        transform-origin: right center;
+      }
+    }
+    .addHeard {
+      display: flex;
+    }
+
+    .noHeard {
+      display: none;
+    }
+
+    .imageCard {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 0rem 0rem 0.5rem 0.5rem;
+    }
+  }
+
+  #titleCard {
+    margin-top: 0.8rem;
+    width: 90%;
+    margin-bottom: 0.5rem;
+    height: 3rem;
+    overflow: hidden;
+    color: rgb(77, 77, 77);
+    margin-bottom: 2rem;
+  }
+
+  #priceCard {
+    width: 90%;
+    font-weight: bolder;
+    margin-bottom: 1rem;
+    #boxPriceOldCard {
+      display: flex;
+      justify-content: center;
+      #priceOldCard {
+        text-decoration: line-through;
+        width: 85%;
+        font-size: 10px;
+        color: rgb(255, 51, 0);
+      }
+    }
+    #boxPriceDiscountCard {
+      color: rgb(77, 77, 77);
+      display: flex;
+      #price-left {
+        width: 50%;
+        display: flex;
+        justify-content: flex-start;
+        font-weight: bolder;
+      }
+      #price-right {
+        width: 50%;
+        display: flex;
+        justify-content: flex-end;
+        color: rgb(102, 179, 26);
+        font-size: smaller;
+      }
+    }
+  }
+}
+
+.boxCard:hover {
+  border: 3px solid rgb(0, 128, 128);
+}
