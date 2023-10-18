@@ -16,27 +16,29 @@ export default function Card(value) {
 
   useEffect(() => {
     console.log(" card component useEffect");
-    if (state.Favorite !== undefined && value.value !== undefined) {
-      console.log("in className status is : no undefined");
-      console.log(
-        state.Favorite.findIndex((element) => element.id === value.value.id)
-      );
-      const isFavorite = state.Favorite.findIndex(
-        (element) => element.id === value.value.id
-      );
-      if (isFavorite !== -1) {
-        console.log("in className status is :", false);
-        boxHeart.current.className = "addHeard";
+    if (value.isFavorite) {
+      if (state.Favorite !== undefined && value.value !== undefined) {
+        console.log("in className status is : no undefined");
+        console.log(
+          state.Favorite.findIndex((element) => element.id === value.value.id)
+        );
+        const isFavorite = state.Favorite.findIndex(
+          (element) => element.id === value.value.id
+        );
+        if (isFavorite !== -1) {
+          console.log("in className status is :", false);
+          boxHeart.current.className = "addHeard";
+        } else {
+          console.log("in className status is :", true);
+          boxHeart.current.className = "noHeard";
+        }
       } else {
-        console.log("in className status is :", true);
         boxHeart.current.className = "noHeard";
       }
-    } else {
-      boxHeart.current.className = "noHeard";
     }
-  }, [state.Favorite, value.value, dispatch]);
+  }, [state.Favorite, value.value, dispatch, value.isFavorite]);
 
-  console.log(value);
+  // console.log(value);
   return (
     <Link
       id={value.value.id}
@@ -59,9 +61,14 @@ export default function Card(value) {
         ) : (
           console.log("no discount")
         )}
-        <div id="boxHeart" ref={boxHeart}>
-          <div id="Heart" className=""></div>
-        </div>
+
+        {value.isFavorite ? (
+          <div id="boxHeart" ref={boxHeart} className="noHeard">
+            <div id="Heart"></div>
+          </div>
+        ) : (
+          <></>
+        )}
 
         <img
           className="imageCard"

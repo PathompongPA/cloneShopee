@@ -1,6 +1,5 @@
 import {
   CartComponent,
-  Content,
   FavoriteComponent,
   LoginComponent,
   ProductComponent,
@@ -15,7 +14,7 @@ const RootRouter = [
     path: "/",
     element: <Main />,
     children: [
-      { path: "", element: <Content /> },
+      { path: "", element: <ProductComponent /> },
       { path: "home", element: <ProductComponent /> },
       { path: "product", element: <ProductComponent /> },
       { path: "product/:id/:name", element: <ShowProduct /> },

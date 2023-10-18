@@ -3,6 +3,7 @@ let initial = {
   isState: false,
   user: "admin",
   password: "",
+  numItem: 20,
   isLogin: false,
   product: [{ id: 1, name: "", quantity: 0 }],
   titleNavbar: [

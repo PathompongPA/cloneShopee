@@ -90,7 +90,6 @@ function reducer(state, action) {
           Favorite: [action.payload],
         };
       }
-
       if (
         state.Favorite.findIndex(
           (element) => element.id === action.payload.id
@@ -103,15 +102,27 @@ function reducer(state, action) {
           ),
         };
       }
-
       return {
         ...state,
         Favorite: [...state.Favorite, action.payload],
       };
+    case "setNumItem":
+      if (state.numItem + 12 >= 100) {
+        return {
+          ...state,
+          numItem: 100,
+        };
+      }
+      return {
+        ...state,
+        numItem: state.numItem + 12,
+      };
 
-    case "delete-Favorite":
-      return {};
-
+    case "setScrollPosition":
+      return {
+        ...state,
+        scrollPosition: action.payload,
+      };
     default:
       return state;
   }
