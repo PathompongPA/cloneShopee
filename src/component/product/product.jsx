@@ -16,27 +16,11 @@ export default function ProductComponent() {
     GetApi(url, "GET").then(async (result) => {
       await dispatch({ type: "setDateProduct", payload: result });
     });
-
-    // callAddSetNumItem(state.scrollPosition);
-    // const onScroll = () =>
-    //   dispatch({ type: "setScrollPosition", payload: window.pageYOffset });
-    // window.removeEventListener("scroll", onScroll);
-    // window.addEventListener("scroll", onScroll, { passive: false });
-    // return () => window.removeEventListener("scroll", onScroll);
   }, [dispatch, state.numItem, state.scrollPosition]);
-
-  // function callAddSetNumItem(valueState) {
-  //   a++;
-  //   if (valueState - 1600 * a > 1600 * a) {
-  //     callAddSetNumItem(valueState);
-  //   } else {
-  //     return dispatch({ type: "setNumItem" });
-  //   }
-  // }
 
   console.log("state scroll position ", state.scrollPosition);
   return (
-    <div id="boxProductComponent" className="boxComponent pdt1">
+    <div id="boxProductComponent">
       <div id="boxContentProductComponent">
         {state.ProductDummy &&
           state.ProductDummy.products.map((props) => {
@@ -59,7 +43,7 @@ export default function ProductComponent() {
             dispatch({ type: "setNumItem" });
           }}
         >
-          <Link style={{ color: "black" }}>show more</Link>
+          <Link id="showMore">show more</Link>
         </div>
       ) : (
         <></>

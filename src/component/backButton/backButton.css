@@ -1,0 +1,18 @@
+#boxBackButton {
+  width: 100%;
+  align-items: center;
+
+  #back {
+    color: rgb(179, 179, 179);
+    font-weight: bold;
+    display: flex;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  #back:hover {
+    font-weight: bold;
+    cursor: pointer;
+    color: rgb(0, 153, 153);
+  }
+}

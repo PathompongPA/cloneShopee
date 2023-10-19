@@ -1,0 +1,7 @@
+#boxDetailProduct {
+  border: 1px solid black;
+  width: 100%;
+  #boxTitleDetailProduct {
+    border: 1px solid red;
+  }
+}

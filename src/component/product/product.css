@@ -1,7 +1,7 @@
 #boxProductComponent {
   background-color: rgb(245, 245, 245);
   padding-bottom: 1rem;
-  padding-top: 5rem;
+  padding-top: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -10,8 +10,8 @@
     background-color: white;
     display: grid;
     grid-template-columns: repeat(4, 25%);
-    width: 55%;
-    padding: 0.5rem;
+    grid-gap: 0.1rem;
+    width: 100%;
   }
   #showMoreProduct {
     display: flex;
@@ -20,6 +20,16 @@
     background-color: white;
     border: 1px solid rgb(204, 204, 204);
     padding: 1rem;
-    width: 50%;
+    width: 30%;
+    user-select: none;
+    cursor: pointer;
+    #showMore {
+      color: rgb(179, 179, 179);
+    }
+  }
+  #showMoreProduct:hover {
+    #showMore {
+      color: black;
+    }
   }
 }

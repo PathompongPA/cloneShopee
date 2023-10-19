@@ -1,35 +1,22 @@
-#boxLoader {
-  display: flex;
-}
 #boxShowProduct {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   background-color: rgb(245, 245, 245);
-
-  #buttonBack {
-    width: 55%;
-    #back {
-      color: rgb(179, 179, 179);
-      font-weight: bold;
-    }
-
-    #back:hover {
-      font-weight: bold;
-      cursor: pointer;
-      color: rgb(0, 153, 153);
-    }
-  }
-
+  width: 100%;
+  height: fit-content;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
   #boxContent {
-    margin-top: 1rem;
-    width: 55%;
-    padding: 1rem;
+    width: 100%;
     background-color: white;
 
     #boxContent-left {
       padding: 1rem;
       width: 35%;
       display: flex;
+      justify-content: center;
       height: 400px;
 
       #boxImgShowProduct {
@@ -101,9 +88,7 @@
 
     #boxContent-right {
       padding: 1rem;
-      width: 65%;
-      padding-left: 3rem;
-      /* border: 1px solid black; */
+      width: 60%;
       height: 400px;
 
       #boxTitleShowProduct {
