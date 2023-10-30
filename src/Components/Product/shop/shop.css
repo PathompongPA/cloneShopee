@@ -1,0 +1,21 @@
+#boxShopComponent {
+  margin: 0.25rem;
+  background-color: white;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+
+  #boxBranderShopComponent {
+    width: 30%;
+    margin: 2rem 0 2rem 2rem;
+    border: 2px solid black;
+  }
+  #boxDetailShopComponent {
+    display: grid;
+    grid-template-columns: 30% 40% 30%;
+    margin: 2rem 2rem 2rem 0rem;
+    border: 2px solid black;
+    width: 100%;
+  }
+}

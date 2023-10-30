@@ -1,0 +1,40 @@
+#boxTitleCardComponent {
+  width: 1200px;
+  height: 70px;
+  display: grid;
+  grid-template-columns: repeat(6, 10% 30% 20% 10% 20% 10%);
+  margin: 1rem 0rem 1rem 0rem;
+  background-color: white;
+  border: 3px solid rgb(230, 230, 230);
+  border-radius: 1rem;
+  position: sticky;
+  top: 8rem;
+  background-color: white;
+  z-index: 2;
+
+  #boxTitleCardComponentSelect {
+    #SelectItemAll {
+      accent-color: rgb(50, 178, 178);
+      transform: scale(1.5);
+    }
+  }
+  #boxTitleCardComponentTitle {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 1rem;
+  }
+  #boxTitleCardCartPricePerPice {
+  }
+  #boxTitleCardCartAction {
+  }
+  #boxTitleCardCartTotalPrice {
+  }
+  #boxTitleCardCartAction {
+  }
+}
+.boxCardCart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,0 +1,182 @@
+#boxShowProduct {
+  margin: 0.25rem;
+  background-color: white;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  #boxContentShowProduct {
+    display: grid;
+    height: fit-content;
+    grid-template-columns: 50% 50%;
+    width: 100%;
+    #boxContent-left {
+      height: 100%;
+
+      #boxImgShowProduct {
+        margin: 1rem 0rem 2rem 0rem;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        /* border: 1px solid blue; */
+
+        #showProductImg {
+          height: 300px;
+          width: 300px;
+          object-fit: contain;
+          border: 2px solid rgb(230, 230, 230);
+        }
+
+        #boxSlideShowProduct {
+          border: 2px solid rgb(230, 230, 230);
+          width: 300px;
+          height: 60px;
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          flex-direction: row;
+          margin-top: 0.5rem;
+          position: relative;
+
+          #boxSlideShowProductSub {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            overflow: hidden;
+            .imgSlideShowProduct {
+              width: 50px;
+              height: 50px;
+              object-fit: cover;
+              margin: 0.3rem;
+            }
+          }
+
+          #scrollLeft {
+            cursor: pointer;
+            position: absolute;
+            background-color: rgb(77, 77, 77);
+            color: white;
+            opacity: 0.5;
+            width: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            user-select: none;
+          }
+
+          #scrollRight {
+            cursor: pointer;
+            position: absolute;
+            right: 0;
+            background-color: rgb(77, 77, 77);
+            color: white;
+            opacity: 0.5;
+            width: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            user-select: none;
+          }
+        }
+      }
+    }
+
+    #boxContent-right {
+      height: 100%;
+
+      #boxTitleShowProduct {
+        margin: 2rem 2rem 2rem 0rem;
+        display: grid;
+        grid-template-columns: 50% 50%;
+        justify-content: center;
+        align-items: center;
+
+        #showProductTitle {
+          font-weight: bold;
+          font-size: larger;
+        }
+
+        #FavoriteButton {
+          display: flex;
+          justify-content: flex-end;
+          #heart {
+          }
+          .addFavorite {
+            color: red;
+          }
+          .noFavorite {
+            color: black;
+          }
+        }
+      }
+
+      #boxShowProductStatus {
+        margin: 2rem 2rem 2rem 0rem;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        color: rgb(130, 130, 130);
+
+        #showProductRating {
+          width: 50%;
+        }
+
+        #showProductStock {
+          display: flex;
+          justify-content: flex-end;
+          width: 50%;
+        }
+      }
+
+      #showProductPrice {
+        height: 4rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(240, 240, 240);
+        color: rgb(102, 102, 102);
+        font-weight: bolder;
+        margin: 3rem 2rem 2rem 0rem;
+      }
+
+      #boxAddItem {
+        height: 4rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0rem 2rem 2rem 0rem;
+        /* border: 1px solid black; */
+
+        #showCount {
+          width: 3rem;
+          display: flex;
+          justify-content: center;
+        }
+      }
+
+      #boxAddItemToCart {
+        margin-top: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 3rem;
+        background-color: rgb(0, 153, 153);
+        color: white;
+        user-select: none;
+        margin: 2rem 2rem 2rem 0rem;
+      }
+
+      #boxAddItemToCart:hover {
+        background-color: rgb(15, 168, 168);
+        color: white;
+        cursor: pointer;
+      }
+
+      #boxAddItemToCart:active {
+        background-color: rgb(0, 153, 153);
+        color: rgb(51, 51, 51);
+        cursor: pointer;
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+#boxCartComponent {
+  width: 100%;
+  background-color: rgb(245, 245, 245);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  #CartComponentBackButton {
+    display: flex;
+    align-items: flex-start;
+    width: 1200px;
+    position: sticky;
+    top: 5rem;
+    z-index: 99;
+  }
+}
+#boxNoItemInCart {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

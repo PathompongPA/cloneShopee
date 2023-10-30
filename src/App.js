@@ -3,7 +3,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { createContext, useReducer } from "react";
 import { initial } from "./store/MainState/MainState";
 import { RootRouter } from "./store";
-import { reducer } from "./initails/reducer/reducer";
+import { reducer } from "./Initials";
 
 const SomeDate = createContext();
 const RootRoutes = createBrowserRouter(RootRouter);

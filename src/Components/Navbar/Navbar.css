@@ -1,0 +1,48 @@
+#boxNavbar {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  background-color: rgb(26, 128, 128);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 6rem;
+
+  #navbar {
+    /* border: 5px solid yellow; */
+    width: 1080px;
+    display: grid;
+    grid-template-columns: 25% 60% 5% 5% 5%;
+    align-items: center;
+    justify-content: center;
+    list-style-type: none;
+    #logo {
+      background-color: rgb(77, 128, 204);
+      height: 6rem;
+      color: black;
+    }
+    #search {
+      display: grid;
+      grid-template-columns: 85% 5%;
+      grid-gap: 5%;
+    }
+    #favorite {
+    }
+    #cart {
+    }
+  }
+}
+
+.TitleNavbarShow {
+  border: 1px solid white;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}

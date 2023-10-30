@@ -1,3 +1,6 @@
+root {
+  background-color: rgb(77, 77, 77);
+}
 * {
   border: 0;
   margin: 0;
@@ -5,7 +8,7 @@
 }
 @font-face {
   font-family: "myfont";
-  src: url("./assets/fonts/prompt/Prompt-Regular.ttf");
+  src: url("./Assets/fonts/prompt/Prompt-Regular.ttf");
 }
 .boxComponent {
   display: flex;
@@ -47,6 +50,10 @@
 }
 .pdt1 {
   padding-top: 5rem;
+}
+
+.bg {
+  background-color: rgb(115, 240, 240);
 }
 .tab {
   tab-size: 1rem;

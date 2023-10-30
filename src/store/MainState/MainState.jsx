@@ -1,5 +1,5 @@
 let initial = {
-  count: 0,
+  count: 1,
   isState: false,
   user: "admin",
   password: "",
@@ -10,14 +10,6 @@ let initial = {
     {
       path: "/",
       title: "logo",
-    },
-    {
-      path: "/",
-      title: "home",
-    },
-    {
-      path: "/product",
-      title: "product",
     },
     {
       path: "/favorite",

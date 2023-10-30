@@ -1,0 +1,19 @@
+#boxTotalCart {
+  height: 200px;
+  width: 1200px;
+  background-color: white;
+  border: 3px solid rgb(230, 230, 230);
+  border-radius: 1rem;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  align-items: center;
+  position: sticky;
+  bottom: 1rem;
+  margin: 1rem 0 1rem 0;
+  #boxTotalCartSelect {
+    #SelectAllItem {
+      accent-color: rgb(50, 178, 178);
+      transform: scale(1.5);
+    }
+  }
+}

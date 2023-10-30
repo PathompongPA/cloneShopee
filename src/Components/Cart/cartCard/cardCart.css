@@ -1,0 +1,47 @@
+#boxCardCartComponent {
+  border: 3px solid white;
+  border-radius: 1rem;
+  width: 1200px;
+  height: 100px;
+  display: grid;
+  grid-template-columns: repeat(6, 10% 30% 20% 10% 20% 10%);
+  margin: 0.2rem 0rem 0.2rem 0rem;
+  background-color: rgb(210, 240, 240);
+
+  #boxCardCartSelect {
+    #SelectItem {
+      accent-color: rgb(50, 178, 178);
+      transform: scale(1.5);
+    }
+  }
+  #boxCardCartProduct {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    #boxCardCartImage {
+      #imageItemCart {
+        width: 50px;
+        height: 50px;
+      }
+    }
+    #boxTitleItem {
+      color: black;
+    }
+  }
+  #boxCardCartPricePerPice {
+  }
+  #boxCardCartAction {
+  }
+  #boxCardCartTotalPrice {
+  }
+  #boxCardCartAction {
+  }
+}
+.boxCardCart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#boxCardCartComponent:hover {
+  border: 3px solid rgb(25, 120, 120);
+}

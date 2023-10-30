@@ -1,20 +1,21 @@
+import { HomeTemplate, LoginTemplate, ProductTemplate } from "../../Templates";
 import {
   CartComponent,
   ErrorComponent,
   FavoriteComponent,
   LoginComponent,
-  ProductComponent,
-} from "../../component";
-import { HomeTemplate, LoginTemplate, ProductTemplate } from "../../template";
+  ProductListComponent,
+} from "../../Components";
+import CartTemplate from "../../Templates/CartTemplate/CartTemplate";
 
 const RootRouter = [
   {
     path: "/",
     element: <HomeTemplate />,
     children: [
-      { path: "", element: <ProductComponent /> },
-      { path: "home", element: <ProductComponent /> },
-      { path: "product", element: <ProductComponent /> },
+      { path: "", element: <ProductListComponent /> },
+      { path: "home", element: <ProductListComponent /> },
+      { path: "product", element: <ProductListComponent /> },
       { path: "favorite", element: <FavoriteComponent /> },
       { path: "cart", element: <CartComponent /> },
     ],

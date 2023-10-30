@@ -1,0 +1,7 @@
+#boxShowProduct {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border: 5px solid red; */
+  background-color: rgb(77, 77, 77);
+}
