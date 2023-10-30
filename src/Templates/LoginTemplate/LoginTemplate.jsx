@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import { NavbarComponent } from "../../Components";
+import { FooterComponent, NavbarComponent } from "../../Components";
 import { useEffect } from "react";
 import { GoToTop } from "../../Initials";
 
@@ -11,6 +11,7 @@ export default function LoginTemplate() {
     <div id="boxLoginTemplate">
       <NavbarComponent />
       <Outlet />
+      <FooterComponent />
     </div>
   );
 }

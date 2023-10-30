@@ -10,7 +10,6 @@ export default function ProductListComponent() {
   // let a = 0;
   useEffect(() => {
     console.log("useEffect Product component");
-    console.log("numItem is : ", state.numItem);
     const url = `https://dummyjson.com/products/?limit=${state.numItem}`;
 
     GetApi(url, "GET").then(async (result) => {
@@ -18,7 +17,6 @@ export default function ProductListComponent() {
     });
   }, [dispatch, state.numItem, state.scrollPosition]);
 
-  console.log("state scroll position ", state.scrollPosition);
   return (
     <div id="boxProductComponent">
       <div id="boxContentProductComponent">

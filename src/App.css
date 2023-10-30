@@ -8,7 +8,7 @@ root {
 }
 @font-face {
   font-family: "myfont";
-  src: url("./Assets/fonts/prompt/Prompt-Regular.ttf");
+  src: url("./assets/fonts/prompt/Prompt-Regular.ttf");
 }
 .boxComponent {
   display: flex;

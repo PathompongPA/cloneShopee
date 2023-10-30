@@ -131,17 +131,44 @@ function reducer(state, action) {
       };
 
     case "add-to-cart":
+      console.log("in reducer id :", action.payload.id);
       if (state.cart === undefined) {
         return {
           ...state,
           cart: [action.payload],
         };
+      } else {
+        const index = state.cart.findIndex((a) => a.id === action.payload.id);
+        const newState = state;
+        if (index !== -1) {
+          console.log("new state >> ", newState.cart[index].amount);
+          newState.cart[index].amount += action.payload.amount;
+          console.log(newState);
+          return { newState };
+        }
       }
       return {
         ...state,
         cart: [...state.cart, action.payload],
       };
 
+    case "delete-in-cart":
+      console.log("in reducer :", action.payload.id);
+      if (state.cart !== undefined) {
+        if (state.cart.findIndex((a) => a.id === action.payload.id) !== -1) {
+          const newState = state.cart.filter((object) => {
+            return object.id !== action.payload.id;
+          });
+          return {
+            ...state,
+            cart: newState,
+          };
+        }
+      }
+      return {
+        ...state,
+        cart: [...state.cart, action.payload],
+      };
     default:
       return state;
   }

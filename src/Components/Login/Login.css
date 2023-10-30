@@ -1,10 +1,13 @@
 #boxLoginComponent {
+  padding: 0;
+  margin: 0;
   #boxLogin {
-    margin-top: 5rem;
+    border: 10px solid red;
     flex-direction: column;
     border: 3px solid rgb(230, 230, 230);
     border-radius: 1rem;
     padding: 5rem;
+    height: 65vh;
     #boxTitleLogin {
       margin-bottom: 2rem;
     }

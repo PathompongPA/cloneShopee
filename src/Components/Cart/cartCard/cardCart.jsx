@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
 import "./cardCart.css";
+import { useContext } from "react";
+import { SomeDate } from "../../../App";
 export default function CardCartComponent(value) {
+  const { dispatch } = useContext(SomeDate);
   const Title = value.value.title;
   const PricePerPice = value.value.price * 30;
   const amount = value.value.amount;
@@ -42,7 +45,15 @@ export default function CardCartComponent(value) {
         {Total} ฿
       </div>
 
-      <div id="boxCardCartAction" className="boxCardCart">
+      <div
+        id="boxCardCartAction"
+        className="boxCardCart"
+        onClick={() => {
+          console.log("click delete!!!");
+          console.log(value.value);
+          dispatch({ type: "delete-in-cart", payload: value.value });
+        }}
+      >
         delete
       </div>
     </div>

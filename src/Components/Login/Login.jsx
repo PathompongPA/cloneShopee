@@ -38,15 +38,18 @@ export default function LoginComponent() {
   }, [state]);
 
   return (
-    <div id="boxLoginComponent" className="boxComponent Content">
+    <div id="boxLoginComponent" className="boxContent">
       <div id="boxLogin" className="boxComponent">
         <div id="boxTitleLogin" className="boxContent">
           <h1>Login</h1>
         </div>
+
         <div id="boxFormLogin" className="boxContent">
           <form onSubmit={SubmitLogin}>
             <label>username</label>
+
             <br></br>
+
             <div id="boxInputUserName">
               <input
                 type="text"
@@ -55,15 +58,18 @@ export default function LoginComponent() {
                 autoFocus
               ></input>
             </div>
+
             <br></br>
+
             <label>password</label>
+
             <div id="boxInputPassword">
-              <br></br>
               <input
                 id="inputPassword"
                 type="password"
                 ref={elementInputPassword}
               ></input>
+
               <span
                 id="ShowPassword"
                 onClick={toggleShowPassword}
@@ -72,7 +78,9 @@ export default function LoginComponent() {
                 SHOW
               </span>
             </div>
+
             <br></br>
+
             <div id="boxSubmitLogin" className="boxComponent ">
               <input id="SubmitLogin" type="submit"></input>
             </div>

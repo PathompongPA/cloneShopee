@@ -6,7 +6,6 @@ import {
   LoginComponent,
   ProductListComponent,
 } from "../../Components";
-import CartTemplate from "../../Templates/CartTemplate/CartTemplate";
 
 const RootRouter = [
   {
