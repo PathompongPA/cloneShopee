@@ -144,7 +144,6 @@ export default function CardDetailProduct() {
             onClick={() => {
               let objDataProduct = state.ShowProduct;
               objDataProduct["amount"] = state.count;
-              console.log("state objDataProduct : ", objDataProduct.id);
               dispatch({ type: "add-to-cart", payload: objDataProduct });
               console.log("state cart ", state.cart);
             }}

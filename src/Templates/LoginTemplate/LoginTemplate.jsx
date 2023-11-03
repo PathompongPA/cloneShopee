@@ -6,6 +6,7 @@ import { GoToTop } from "../../Initials";
 export default function LoginTemplate() {
   useEffect(() => {
     GoToTop();
+    console.log("cookie in navbar Template :", document.cookie);
   }, []);
   return (
     <div id="boxLoginTemplate">

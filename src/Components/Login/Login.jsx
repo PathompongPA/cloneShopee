@@ -1,24 +1,33 @@
 import "./Login.css";
 import { useContext, useEffect, useRef } from "react";
 import { SomeDate } from "../../App";
-import { useNavigate } from "react-router-dom";
+import GetApi from "../../Initials/GetApi";
 
 export default function LoginComponent() {
   const elementInputPassword = useRef();
   const elementInputUserName = useRef();
   const elementShowPassword = useRef();
-  const navigate = useNavigate();
-  const { state, dispatch } = useContext(SomeDate);
+  const { state } = useContext(SomeDate);
 
-  function SubmitLogin(e) {
-    if (state.user === elementInputUserName.current.value) {
-      if (state.password === elementInputPassword.current.value) {
-        dispatch({ type: "toggle-isLogin" });
-        dispatch({ type: "login-Success" });
-        navigate("/");
-      }
-    }
+  async function SubmitLogin(e) {
     e.preventDefault();
+    console.log("cookie : ", document.cookie);
+    const user = elementInputUserName.current.value;
+    const password = elementInputPassword.current.value;
+    console.log(user, password);
+    const data = {
+      user: user,
+      email: "test@gmail.com",
+      password: password,
+    };
+    console.log("data in login : ", data);
+    const login = await GetApi(
+      "http://localhost:10000/api/login",
+      "POST",
+      data
+    );
+    console.log(login);
+    console.log("cookie: ", document.cookie);
   }
 
   function toggleShowPassword() {

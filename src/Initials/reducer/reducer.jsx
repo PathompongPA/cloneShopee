@@ -132,6 +132,9 @@ function reducer(state, action) {
 
     case "add-to-cart":
       console.log("in reducer id :", action.payload.id);
+
+      const newState = state;
+
       if (state.cart === undefined) {
         return {
           ...state,
@@ -139,14 +142,14 @@ function reducer(state, action) {
         };
       } else {
         const index = state.cart.findIndex((a) => a.id === action.payload.id);
-        const newState = state;
         if (index !== -1) {
-          console.log("new state >> ", newState.cart[index].amount);
           newState.cart[index].amount += action.payload.amount;
-          console.log(newState);
-          return { newState };
+          console.log("amount is : ", newState.cart[index].amount);
+          console.log("newState is : ", newState);
+          return newState;
         }
       }
+
       return {
         ...state,
         cart: [...state.cart, action.payload],
