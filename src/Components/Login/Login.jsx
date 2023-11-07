@@ -17,14 +17,17 @@ export default function LoginComponent() {
     console.log(user, password);
     const data = {
       user: user,
-      email: "test@gmail.com",
+      // email: "test@gmail.com",
       password: password,
+      credentials: "include",
     };
+    const credentials = "include";
     console.log("data in login : ", data);
     const login = await GetApi(
-      "http://localhost:10000/api/login",
+      "http://localhost:10000/login",
       "POST",
-      data
+      data,
+      credentials
     );
     console.log(login);
     console.log("cookie: ", document.cookie);

@@ -1,5 +1,6 @@
-async function GetApi(url, method = "GET", body) {
+async function GetApi(url, method = "GET", body, credentials = "omit") {
   return await fetch(url, {
+    credentials: credentials,
     method: method,
     headers: {
       Accept: "application/json",
