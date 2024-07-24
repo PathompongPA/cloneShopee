@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.602955f7.css",
-    "main.js": "/static/js/main.9912706d.js",
-    "static/js/787.bc07a2e0.chunk.js": "/static/js/787.bc07a2e0.chunk.js",
-    "static/media/Prompt-Regular.ttf": "/static/media/Prompt-Regular.a8979f5fddba897421a7.ttf",
-    "index.html": "/index.html",
-    "main.602955f7.css.map": "/static/css/main.602955f7.css.map",
-    "main.9912706d.js.map": "/static/js/main.9912706d.js.map",
-    "787.bc07a2e0.chunk.js.map": "/static/js/787.bc07a2e0.chunk.js.map"
+    "main.css": "/cloneShopee/static/css/main.0215e082.css",
+    "main.js": "/cloneShopee/static/js/main.5b48aabb.js",
+    "static/js/787.bc07a2e0.chunk.js": "/cloneShopee/static/js/787.bc07a2e0.chunk.js",
+    "static/media/Prompt-Regular.ttf": "/cloneShopee/static/media/Prompt-Regular.a8979f5fddba897421a7.ttf",
+    "index.html": "/cloneShopee/index.html",
+    "main.0215e082.css.map": "/cloneShopee/static/css/main.0215e082.css.map",
+    "main.5b48aabb.js.map": "/cloneShopee/static/js/main.5b48aabb.js.map",
+    "787.bc07a2e0.chunk.js.map": "/cloneShopee/static/js/787.bc07a2e0.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.602955f7.css",
-    "static/js/main.9912706d.js"
+    "static/css/main.0215e082.css",
+    "static/js/main.5b48aabb.js"
   ]
 }
