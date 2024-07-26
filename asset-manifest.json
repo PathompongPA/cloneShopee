@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/cloneShopee/static/css/main.999a1867.css",
-    "main.js": "/cloneShopee/static/js/main.ec57b5d4.js",
+    "main.js": "/cloneShopee/static/js/main.13d9b155.js",
     "static/js/787.bc07a2e0.chunk.js": "/cloneShopee/static/js/787.bc07a2e0.chunk.js",
     "static/media/Prompt-Regular.ttf": "/cloneShopee/static/media/Prompt-Regular.a8979f5fddba897421a7.ttf",
     "index.html": "/cloneShopee/index.html",
     "main.999a1867.css.map": "/cloneShopee/static/css/main.999a1867.css.map",
-    "main.ec57b5d4.js.map": "/cloneShopee/static/js/main.ec57b5d4.js.map",
+    "main.13d9b155.js.map": "/cloneShopee/static/js/main.13d9b155.js.map",
     "787.bc07a2e0.chunk.js.map": "/cloneShopee/static/js/787.bc07a2e0.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.999a1867.css",
-    "static/js/main.ec57b5d4.js"
+    "static/js/main.13d9b155.js"
   ]
 }
