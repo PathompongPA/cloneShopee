@@ -8,8 +8,9 @@ import LoginComponent from "./Login/Login";
 import NavbarComponent from "./Navbar/Navbar";
 import ProductComponent from "./Product/Product";
 import ProductListComponent from "./ProductsList/ProductList";
-
+import BtnShowMoreProduct from "./ProductsList/BtnShowMoreProduct/BtnShowMoreProduct";
 export {
+  BtnShowMoreProduct,
   ProductListComponent,
   ProductComponent,
   NavbarComponent,

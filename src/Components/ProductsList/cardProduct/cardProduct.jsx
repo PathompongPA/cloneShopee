@@ -4,14 +4,13 @@ import { Link } from "react-router-dom";
 import { SomeDate } from "../../../App";
 
 export default function CardProduct(value) {
-  const { state, dispatch } = useContext(SomeDate);
-  // const id = value.value.id;
+  const { globalState, dispatch } = useContext(SomeDate);
   const boxHeart = useRef();
 
   useEffect(() => {
     if (value.isFavorite) {
-      if (state.Favorite !== undefined && value.value !== undefined) {
-        const isFavorite = state.Favorite.findIndex(
+      if (globalState.Favorite !== undefined && value.value !== undefined) {
+        const isFavorite = globalState.Favorite.findIndex(
           (element) => element.id === value.value.id
         );
         if (isFavorite !== -1) {
@@ -24,7 +23,7 @@ export default function CardProduct(value) {
       }
     }
   }, [
-    state.Favorite,
+    globalState.Favorite,
     value.showProduct,
     value.value,
     dispatch,

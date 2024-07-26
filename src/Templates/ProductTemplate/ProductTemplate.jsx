@@ -12,7 +12,7 @@ import {
 import { GoToTop } from "../../Initials";
 
 export default function ProductTemplate() {
-  const { state, dispatch } = useContext(SomeDate);
+  const { globalState, dispatch } = useContext(SomeDate);
   const { id } = useParams();
 
   useEffect(() => {
@@ -29,7 +29,7 @@ export default function ProductTemplate() {
   return (
     <div id="boxProductTemplate">
       <NavbarComponent />
-      {state.ShowProduct !== undefined ? (
+      {globalState.ShowProduct !== undefined ? (
         <div id="boxContentProductTemplate">
           <ProductComponent />
         </div>

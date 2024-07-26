@@ -9,10 +9,10 @@ const SomeDate = createContext();
 const RootRoutes = createBrowserRouter(RootRouter);
 
 function App() {
-  const [state, dispatch] = useReducer(reducer, initial);
+  const [globalState, dispatch] = useReducer(reducer, initial);
 
   return (
-    <SomeDate.Provider value={{ state, dispatch }}>
+    <SomeDate.Provider value={{ globalState, dispatch }}>
       <RouterProvider router={RootRoutes} />
     </SomeDate.Provider>
   );

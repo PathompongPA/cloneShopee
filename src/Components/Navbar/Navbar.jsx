@@ -1,10 +1,9 @@
-import GetApi from "../../Initials/GetApi";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
 
 export default function NavbarComponent() {
   function logout(e) {
-    GetApi("http://localhost:10000/api/logout", "POST");
+    // GetApi("http://localhost:10000/api/logout", "POST");
   }
   return (
     <div id="boxNavbar">

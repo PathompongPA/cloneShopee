@@ -6,15 +6,15 @@ import BackButtonComponent from "../../BackButton/BackButton";
 
 export default function CardDetailProduct() {
   const { id } = useParams();
-  const { state, dispatch } = useContext(SomeDate);
+  const { globalState, dispatch } = useContext(SomeDate);
   const boxSlideShowProductSub = useRef();
   const mainImg = useRef();
   const heart = useRef();
 
   useEffect(() => {
     dispatch({ type: "clear-count" });
-    if (state.Favorite !== undefined) {
-      const isFavorite = state.Favorite.findIndex(
+    if (globalState.Favorite !== undefined) {
+      const isFavorite = globalState.Favorite.findIndex(
         (element) => element.id === parseInt(id)
       );
       if (isFavorite !== -1) {
@@ -23,7 +23,7 @@ export default function CardDetailProduct() {
         heart.current.className = "noFavorite";
       }
     }
-  }, [dispatch, id, state.Favorite, state.ShowProduct]);
+  }, [dispatch, id, globalState.Favorite, globalState.ShowProduct]);
 
   function scroll(scrollOffset) {
     boxSlideShowProductSub.current.scrollLeft += scrollOffset;
@@ -38,8 +38,8 @@ export default function CardDetailProduct() {
             <img
               id="showProductImg"
               ref={mainImg}
-              src={state.ShowProduct && state.ShowProduct.thumbnail}
-              alt={state.ShowProduct && state.ShowProduct.title}
+              src={globalState.ShowProduct && globalState.ShowProduct.thumbnail}
+              alt={globalState.ShowProduct && globalState.ShowProduct.title}
             ></img>
 
             <div id="boxSlideShowProduct">
@@ -48,8 +48,8 @@ export default function CardDetailProduct() {
               </div>
 
               <div id="boxSlideShowProductSub" ref={boxSlideShowProductSub}>
-                {state.ShowProduct &&
-                  state.ShowProduct.images.map((props) => {
+                {globalState.ShowProduct &&
+                  globalState.ShowProduct.images.map((props) => {
                     return (
                       <img
                         id={props}
@@ -75,7 +75,7 @@ export default function CardDetailProduct() {
         <div id="boxContent-right">
           <div id="boxTitleShowProduct">
             <div id="showProductTitle">
-              {state.ShowProduct && state.ShowProduct.title}
+              {globalState.ShowProduct && globalState.ShowProduct.title}
             </div>
 
             <div id="FavoriteButton">
@@ -86,7 +86,7 @@ export default function CardDetailProduct() {
                 onClick={async () => {
                   await dispatch({
                     type: "add-Favorite",
-                    payload: state.ShowProduct,
+                    payload: globalState.ShowProduct,
                   });
                 }}
               >
@@ -97,19 +97,19 @@ export default function CardDetailProduct() {
 
           <div id="boxShowProductStatus">
             <div id="showProductRating">
-              ratting : {state.ShowProduct && state.ShowProduct.rating}{" "}
+              ratting : {globalState.ShowProduct && globalState.ShowProduct.rating}{" "}
             </div>
 
             <div id="showProductStock">
-              In stock : {state.ShowProduct && state.ShowProduct.stock} piece
+              In stock : {globalState.ShowProduct && globalState.ShowProduct.stock} piece
             </div>
           </div>
 
           <div id="showProductPrice">
-            {state.ShowProduct &&
+            {globalState.ShowProduct &&
               (
-                state.ShowProduct.price *
-                ((100 - state.ShowProduct.discountPercentage) / 100) *
+                globalState.ShowProduct.price *
+                ((100 - globalState.ShowProduct.discountPercentage) / 100) *
                 30
               ).toLocaleString(undefined, { maximumFractionDigits: 0 })}{" "}
             ฿
@@ -126,7 +126,7 @@ export default function CardDetailProduct() {
               -
             </button>
 
-            <div id="showCount">{state.count}</div>
+            <div id="showCount">{globalState.count}</div>
 
             <button
               id="increaseItem"
@@ -142,10 +142,10 @@ export default function CardDetailProduct() {
           <Link
             id="boxAddItemToCart"
             onClick={() => {
-              let objDataProduct = state.ShowProduct;
-              objDataProduct["amount"] = state.count;
+              let objDataProduct = globalState.ShowProduct;
+              objDataProduct["amount"] = globalState.count;
               dispatch({ type: "add-to-cart", payload: objDataProduct });
-              console.log("state cart ", state.cart);
+              console.log("state cart ", globalState.cart);
             }}
           >
             add to cart
