@@ -1,15 +1,13 @@
-import { HomeTemplate, LoginTemplate, ProductTemplate } from "../../Templates";
+import { HomeTemplate, ProductTemplate } from "../../Templates";
 import {
   CartComponent,
-  ErrorComponent,
   FavoriteComponent,
-  LoginComponent,
   ProductListComponent,
 } from "../../Components";
 
 const RootRouter = [
   {
-    path: "/",
+    path: "/*",
     element: <HomeTemplate />,
     children: [
       { path: "", element: <ProductListComponent /> },
@@ -23,12 +21,11 @@ const RootRouter = [
     path: "/product/:id/:name",
     element: <ProductTemplate />,
   },
-  {
-    path: "/",
-    element: <LoginTemplate />,
-    children: [{ path: "login", element: <LoginComponent /> }],
-  },
-  { path: "*", element: <ErrorComponent /> },
+  // {
+  //   path: "/",
+  //   element: <LoginTemplate />,
+  //   children: [{ path: "login", element: <LoginComponent /> }],
+  // },
 ];
 
 export { RootRouter };
