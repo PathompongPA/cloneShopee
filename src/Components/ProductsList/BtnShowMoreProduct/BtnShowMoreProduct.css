@@ -1,0 +1,16 @@
+.BtnShowMoreProducts {
+    display: flex;
+    justify-content: center;
+    margin: 1rem;
+    background-color: white;
+    border: 1px solid rgb(204, 204, 204);
+    padding: 1rem;
+    width: 30%;
+    color: black;
+    transition: all 1s;
+}
+
+
+.BtnShowMoreProducts:hover {
+    color: rgb(199, 199, 199);
+}
