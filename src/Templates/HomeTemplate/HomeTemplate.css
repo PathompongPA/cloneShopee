@@ -1,13 +1,7 @@
-#boxHomeTemplate {
+.HomeTemplate{
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: rgb(230, 230, 230);
-  #boxMainTemplateContent {
-    border: 5px solid green;
-    background-color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+  background-color:var(--bgc-1); 
+  border: 5px solid red;
 }
