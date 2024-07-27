@@ -1,9 +1,9 @@
-import { ProductListComponent, FavoriteComponent, CartComponent } from "../../Components";
-import { HomeTemplate, ProductTemplate } from "../../Templates";
+import { ProductListComponent, FavoriteComponent, CartComponent, LoginComponent, ErrorComponent } from "../../Components";
+import { HomeTemplate, ProductTemplate, LoginTemplate } from "../../Templates";
 
 const RootRouter = [
     {
-        path: "/cloneShopee/*",
+        path: "/",
         element: <HomeTemplate />,
         children: [
             { path: "", element: <ProductListComponent /> },
@@ -17,11 +17,12 @@ const RootRouter = [
         path: "/product/:id/:name",
         element: <ProductTemplate />,
     },
-    // {
-    //   path: "/",
-    //   element: <LoginTemplate />,
-    //   children: [{ path: "login", element: <LoginComponent /> }],
-    // },
+    {
+        path: "/",
+        element: <LoginTemplate />,
+        children: [{ path: "login", element: <LoginComponent /> }],
+    },
+    { path: "*", element: <ErrorComponent /> },
 ];
 
 export { RootRouter };

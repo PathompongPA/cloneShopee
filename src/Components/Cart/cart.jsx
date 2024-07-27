@@ -7,21 +7,21 @@ import BackButtonComponent from "../BackButton/BackButton";
 import TotalCart from "./TotalCart/TotalCart";
 
 export default function CartComponent() {
-  const { state } = useContext(SomeDate);
+  const { globalState } = useContext(SomeDate);
   useEffect(() => {
-    console.log(">>>>>>> state cart in useEffect ShowProduct : ", state.cart);
-  }, [state.cart]);
+    console.log(">>>>>>> state cart in useEffect ShowProduct : ", globalState.cart);
+  }, [globalState.cart]);
 
   return (
     <>
-      {state.cart ? (
+      {globalState.cart ? (
         <div id="boxCartComponent" className="">
           <div id="CartComponentBackButton">
             <BackButtonComponent />
           </div>
           <TitleCardCart />
-          {state.cart &&
-            state.cart.map((props, index) => {
+          {globalState.cart &&
+            globalState.cart.map((props, index) => {
               return (
                 <div id="boxCardCart" key={index}>
                   <CardCartComponent value={props} key={index} />
