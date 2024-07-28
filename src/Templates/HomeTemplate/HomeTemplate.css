@@ -1,7 +1,6 @@
-.HomeTemplate{
+.HomeTemplate {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color:var(--bgc-1); 
-  border: 5px solid red;
+  background-color: var(--bgc-1);
 }
