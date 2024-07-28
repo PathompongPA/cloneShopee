@@ -113,10 +113,10 @@ function reducer(state, action) {
       };
 
     case "setNumItem":
-      if (state.numItem + 12 >= 100) {
+      if (state.numItem + 12 >= state.ProductJson.total) {
         return {
           ...state,
-          numItem: 100,
+          numItem: state.ProductJson.total,
         };
       }
       return {
