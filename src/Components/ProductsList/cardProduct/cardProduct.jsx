@@ -1,120 +1,111 @@
 import "./cardProduct.css";
-import { useContext, useEffect, useRef } from "react";
+import { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { SomeDate } from "../../../App";
 
-export default function CardProduct(value) {
-  const { globalState, dispatch } = useContext(SomeDate);
-  const boxHeart = useRef();
+export default function CardProduct(props) {
+  const { globalState } = useContext(SomeDate);
+  const ExchangeRate = 30
+  const tagFavorite = document.getElementsByClassName("tag-favorite")
+  let ProductDetail = props.productDetail
+  let ProductName = ProductDetail.title
+  let ProductUrl = `/product/${ProductDetail.id}/${ProductName.replace(/\s/g, "")}`
+  let ProductThumbnail = ProductDetail.thumbnail
+  let ProductDiscountPercent = ProductDetail.discountPercentage.toFixed(0)
+  let ProductPrice = Math.floor(ProductDetail.price * ExchangeRate)
+  let ProductPriceDiscount = (ProductPrice * ((100 - ProductDiscountPercent) / 100)).toLocaleString(undefined, { maximumFractionDigits: 0 })
+
+  let isFavoriteIconOn = props.favoriteIconOn
+  let isDiscountIconOn = props.discountIconOn
+  let isDicountIsNotZero = parseInt(ProductDiscountPercent) !== 0
 
   useEffect(() => {
-    if (value.isFavorite) {
-      if (globalState.Favorite !== undefined && value.value !== undefined) {
-        const isFavorite = globalState.Favorite.findIndex(
-          (element) => element.id === value.value.id
-        );
-        if (isFavorite !== -1) {
-          boxHeart.current.className = "addHeard";
-        } else {
-          boxHeart.current.className = "noHeard";
-        }
-      } else {
-        boxHeart.current.className = "noHeard";
+    let haveProductsFavoriteInGlobalState = globalState.ProductsFavorite !== undefined
+    let haveProductDetail = props.productDetail !== undefined
+    if (isFavoriteIconOn && haveProductDetail) {
+      if (haveProductsFavoriteInGlobalState) {
+        // eslint-disable-next-line array-callback-return
+        globalState.ProductsFavorite.map((ProductDetail) => {
+          let haveProductInProductFavoriteState = ProductDetail.id === props.productDetail.id
+          if (haveProductInProductFavoriteState) {
+            tagFavorite.classList.toggle = "tag-favorite--show";
+          }
+        });
       }
     }
-  }, [
-    globalState.Favorite,
-    value.showProduct,
-    value.value,
-    dispatch,
-    value.isFavorite,
-  ]);
+  }, [isFavoriteIconOn, globalState.ProductsFavorite, props.favoriteIconOn, props.productDetail, tagFavorite.classList]);
+
+  function TagDiscount() {
+    console.log("discount is not zero ", isDicountIsNotZero, ProductDiscountPercent, ProductName, typeof ProductDiscountPercent);
+    if (isDiscountIconOn && isDicountIsNotZero) {
+      return (
+        <div className="tag-discount">
+          <span className="tag-discount__title" key={"decrease" + props.productDetail.title}>
+            ลด
+          </span>
+          <span className="tag-discount__amount">
+            {ProductDiscountPercent}%
+          </span>
+        </div >
+      )
+    }
+  }
+
+  function TagFavorite() {
+    if (isFavoriteIconOn) {
+      return (
+        <div className="tag-favorite addHeard">
+          <div className="tag-favorite__heart"></div>
+        </div>
+      )
+    }
+  }
+
+  function Image() {
+    return <img className="card-product__image"
+      src={ProductThumbnail}
+      key={"img" + ProductName}
+      alt={ProductName}
+    />
+  }
+
+  function Title() {
+    return (
+      <div className="card-product__title" key={"title" + ProductName}> {ProductName} </div>
+    )
+  }
+
+  function Price() {
+    if (isDiscountIconOn && isDicountIsNotZero) {
+      return (
+        <div className="card-product__price " key={"price" + ProductPrice}>
+          <div className="price__original price__original--kill-price"> {ProductPrice} </div>
+          <div className="price__discount"> ฿{ProductPriceDiscount} </div>
+        </div>
+      )
+    }
+    else {
+      return (
+        <div className="card-product__price" key={"price" + ProductPrice}>
+          <div className="price__original"> ฿{ProductPrice} </div>
+        </div>
+      )
+    }
+  }
+
+  function Box(props) {
+    return (
+      <Link className="card-product" to={ProductUrl} key={"box" + ProductName} >{props.children}</Link>
+    )
+  }
 
   return (
-    <Link
-      id={value.value.id}
-      className="boxCard"
-      data={value.value.title}
-      data-id={value.value.id}
-      to={
-        "/product/" +
-        value.value.id +
-        "/" +
-        value.value.title.replace(/\s/g, "")
-      }
-      key={"box" + value.value.title}
-    >
-      <div id="boxImageCard">
-        {value.discount ? (
-          <div id="ShowDiscount">
-            <span id="decrease" key={"decrease" + value.value.title}>
-              ลด
-            </span>
-            <span id="discountPercentage">
-              {value.value.discountPercentage.toFixed(0)}%
-            </span>
-          </div>
-        ) : (
-          <></>
-        )}
-
-        {value.isFavorite ? (
-          <div id="boxHeart" ref={boxHeart} className="noHeard">
-            <div id="Heart"></div>
-          </div>
-        ) : (
-          <></>
-        )}
-
-        <img
-          className="imageCard"
-          src={value.value.thumbnail}
-          key={"img" + value.value.title}
-          alt=""
-        ></img>
-      </div>
-
-      <div id="titleCard" key={"title" + value.value.title}>
-        {value.value.title}
-      </div>
-
-      <div id="priceCard" key={"price" + value.value.price}>
-        {value.value.discountPercentage && (
-          <div id="boxPriceOldCard">
-            <div id="priceOldCard" key={"price" + value.value.price + "left"}>
-              ฿{value.value.price * 30}
-            </div>
-          </div>
-        )}
-        <div id="boxPriceDiscountCard">
-          <div id="price-left" key={"price" + value.value.price + "left"}>
-            ฿{" "}
-            {(
-              value.value.price *
-              ((100 - value.value.discountPercentage) / 100) *
-              30
-            ).toLocaleString(undefined, { maximumFractionDigits: 0 })}
-          </div>
-          <div id="price-right" key={"price" + value.value.price + "right"}>
-            in stork {value.value.stock}
-          </div>
-        </div>
-      </div>
-    </Link>
+    <Box>
+      <Image />
+      <Title />
+      <Price />
+      <TagDiscount />
+      <TagFavorite />
+    </Box>
   );
 }
-// {
-//   value.isDeleteFavorite && (
-//     <Link
-//       id="boxDeleteFavorite"
-//       onClick={async () => {
-//         await dispatch({
-//           type: "add-Favorite",
-//           payload: { id: id },
-//         });
-//       }}
-//     >
-//       X
-//     </Link>
-//   );
-// }
