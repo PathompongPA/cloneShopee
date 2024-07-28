@@ -5,15 +5,14 @@ import "./BtnShowMoreProduct.css"
 
 export default function BtnShowMoreProduct() {
     const { globalState, dispatch } = useContext(SomeDate);
-    // console.log("BtnShowMoreProduct", globalState);
-    const state = globalState.ProductDummy
 
     const handleOnclick = () => {
         dispatch({ type: "setNumItem" });
     }
 
-    if (state !== undefined && state.limit !== state.total) {
-        console.log(state.limit, state.total);
+    let HaveProductInGlobalSate = globalState.ProductJson !== undefined
+    let amountProductLessMoreThanProductTotal = globalState.ProductJson.limit !== globalState.ProductJson.total
+    if (HaveProductInGlobalSate && amountProductLessMoreThanProductTotal) {
         return (
             <Link className="BtnShowMoreProducts" onClick={handleOnclick} >
                 show more

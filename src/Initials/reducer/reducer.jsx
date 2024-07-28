@@ -65,10 +65,10 @@ function reducer(state, action) {
         product: [...state.product, action.payload],
       };
 
-    case "setDateProduct":
+    case "setJsonProduct":
       return {
         ...state,
-        ProductDummy: action.payload,
+        ProductJson: action.payload,
       };
 
     case "setShowProduct":
@@ -89,10 +89,10 @@ function reducer(state, action) {
       return {};
 
     case "add-Favorite":
-      if (state.Favorite === undefined) {
+      if (state.ProductsFavorite === undefined) {
         return {
           ...state,
-          Favorite: [action.payload],
+          ProductsFavorite: [action.payload],
         };
       }
       if (
@@ -102,14 +102,14 @@ function reducer(state, action) {
       ) {
         return {
           ...state,
-          Favorite: state.Favorite.filter(
+          ProductsFavorite: state.Favorite.filter(
             (element) => element.id !== action.payload.id
           ),
         };
       }
       return {
         ...state,
-        Favorite: [...state.Favorite, action.payload],
+        ProductsFavorite: [...state.Favorite, action.payload],
       };
 
     case "setNumItem":

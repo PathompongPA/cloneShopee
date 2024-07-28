@@ -7,24 +7,24 @@ import BtnShowMoreProduct from "./BtnShowMoreProduct/BtnShowMoreProduct";
 
 export default function ProductListComponent() {
   const { globalState, dispatch } = useContext(SomeDate);
-  let state = globalState.ProductDummy
+  let HaveProductJsonInGlobalState = globalState.ProductJson !== undefined
 
   useEffect(() => {
     let url = `https://dummyjson.com/products/?limit=${globalState.numItem}`;
     GetApi(url, "GET").then(async (result) => {
-      await dispatch({ type: "setDateProduct", payload: result });
+      await dispatch({ type: "setJsonProduct", payload: result });
     });
   }, [dispatch, globalState.numItem, globalState.scrollPosition, globalState.ProductDummy]);
 
 
-  if (state !== undefined) {
-    let products = state.products
-    const ListCardProducts = products.map(props =>
+  if (HaveProductJsonInGlobalState) {
+    let ListProducts = globalState.ProductJson.products
+    const ListCardProducts = ListProducts.map(productDetail =>
       <CardProduct
-        value={props}
-        discount={true}
-        isFavorite={true}
-        key={props.id}
+        discountIconOn={true}
+        favoriteIconOn={true}
+        productDetail={productDetail}
+        key={productDetail.id}
       />
     )
 
