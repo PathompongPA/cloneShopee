@@ -11,11 +11,9 @@ export default function ProductListComponent() {
     let ListProducts = globalState.ProductJson.products
     return (
       <div className="productList">
-        {
-          ListProducts.map(productDetail =>
-            < CardProduct discountIconOn={true} favoriteIconOn={true} productDetail={productDetail} key={productDetail.id} />
-          )
-        }
+        {ListProducts.map(productDetail =>
+          < CardProduct discountIconOn={true} favoriteIconOn={true} productDetail={productDetail} key={productDetail.id} />
+        )}
       </div>)
   } else {
     return <LoaderComponent />
