@@ -9,7 +9,7 @@
   padding: var(--edge-mobile);
   z-index: 1;
   color: var(--color-bd);
-  border-color: white;
+  border-color: var(--color-bd);
 }
 
 .navbar[data-scroll="0"] {
@@ -29,7 +29,6 @@
 
 .navbar__search {
   color: inherit;
-  border-color: inherit;
 }
 
 .navbar__search--disable {
@@ -37,10 +36,10 @@
 }
 
 .search__input {
+  border-color: var(--color-bd);
   background-color: inherit;
   border-width: 1px;
   border-style: solid;
-  border-color: inherit;
   color: inherit;
 }
 

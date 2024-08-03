@@ -11,27 +11,31 @@ const RootRoutes = createHashRouter(RootRouter);
 
 function App() {
   const [globalState, dispatch] = useReducer(reducer, initialState);
+
   useEffect(() => {
     let url = `https://dummyjson.com/products/?limit=${globalState.numItem}`;
     GetApi(url, "GET").then((result) => {
       dispatch({ type: "setJsonProduct", payload: result });
     });
   }, [dispatch, globalState.numItem]);
+
   window.onscroll = () => {
     DownloadMoreProduct()
     SetAttributeForChangeAmountImage()
   }
+
   return (
     <SomeDate.Provider value={{ globalState, dispatch }}>
       <RouterProvider router={RootRoutes} />
     </SomeDate.Provider>
   );
+
   function SetAttributeForChangeAmountImage() {
     const navbar = document.getElementsByClassName("navbar")[0]
     let positionScroll = window.scrollY
     try {
       navbar.setAttribute("data-scroll", positionScroll)
-  } catch (error) {
+    } catch (error) {
     }
   }
 
