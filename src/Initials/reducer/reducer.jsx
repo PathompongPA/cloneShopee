@@ -1,40 +1,49 @@
-function reducer(state, action) {
+function reducer(globalState, action) {
   switch (action.type) {
-    case "increase":
-      if (
-        state.count === state.ProductDummy.products[action.payload - 1].stock
-      ) {
-        return state;
+    case "increase-amount-product":
+      return handleIncreaseAmountProduct(globalState, action)
+
+    case "decrease-amount-product":
+      return handleDecreaseAmountProduct(globalState)
+
+    case "set-amount-product":
+      return handleSetAmountProduct(globalState, action)
+
+    case "clear-amount-product":
+      return handleClearAmountProduct(globalState, action)
+
+    case "add-to-cart":
+      return handleAddToCart(globalState, action)
+
+    case "delete-in-cart":
+      console.log("in reducer :", action.payload.id);
+      if (globalState.cart !== undefined) {
+        if (globalState.cart.findIndex((a) => a.id === action.payload.id) !== -1) {
+          const newState = globalState.cart.filter((object) => {
+            return object.id !== action.payload.id;
+          });
+          return {
+            ...globalState,
+            cart: newState,
+          };
+        }
       }
       return {
-        ...state,
-        count: state.count++,
+        ...globalState,
+        cart: [...globalState.cart, action.payload],
       };
-
-    case "decrease":
-      if (state.count === 1) {
-        return { ...state, count: 1 };
-      }
-      return {
-        ...state,
-        count: state.count--,
-      };
-
-    case "clear-count":
-      return {
-        ...state,
-        count: 1,
-      };
+    default:
+      return globalState;
 
     case "toggle-isLogin":
       return {
-        ...state,
-        isLogin: !state.isLogin,
+        ...globalState,
+        isLogin: !globalState.isLogin,
       };
 
     case "login-Success":
       return {
-        ...state,
+        ...globalState,
         titleNavbar: [
           {
             path: "/",
@@ -61,25 +70,25 @@ function reducer(state, action) {
 
     case "test":
       return {
-        ...state,
-        product: [...state.product, action.payload],
+        ...globalState,
+        product: [...globalState.product, action.payload],
       };
 
     case "setJsonProduct":
       return {
-        ...state,
+        ...globalState,
         ProductJson: action.payload,
       };
 
-    case "setShowProduct":
+    case "set-product-detail":
       return {
-        ...state,
+        ...globalState,
         ShowProduct: action.payload,
       };
 
-    case "clearShowProduct":
+    case "clear-product-detail":
       return {
-        ...state,
+        ...globalState,
         ShowProduct: undefined,
       };
 
@@ -88,92 +97,118 @@ function reducer(state, action) {
       }
       return {};
 
-    case "add-Favorite":
-      if (state.ProductsFavorite === undefined) {
-        return {
-          ...state,
-          ProductsFavorite: [action.payload],
-        };
-      }
-      if (
-        state.Favorite.findIndex(
-          (element) => element.id === action.payload.id
-        ) !== -1
-      ) {
-        return {
-          ...state,
-          ProductsFavorite: state.Favorite.filter(
-            (element) => element.id !== action.payload.id
-          ),
-        };
-      }
-      return {
-        ...state,
-        ProductsFavorite: [...state.Favorite, action.payload],
-      };
+    case "add-product-favorite":
+      return handleAddProductFavorite(globalState, action)
 
+    // eslint-disable-next-line no-fallthrough
     case "setNumItem":
-      if (state.numItem + 12 >= state.ProductJson.total) {
+      if (globalState.numItem + 12 >= globalState.ProductJson.total) {
         return {
-          ...state,
-          numItem: state.ProductJson.total,
+          ...globalState,
+          numItem: globalState.ProductJson.total,
         };
       }
       return {
-        ...state,
-        numItem: state.numItem + 12,
+        ...globalState,
+        numItem: globalState.numItem + 12,
       };
 
     case "setScrollPosition":
       return {
-        ...state,
+        ...globalState,
         scrollPosition: action.payload,
       };
 
-    case "add-to-cart":
-      console.log("in reducer id :", action.payload.id);
-
-      const newState = state;
-
-      if (state.cart === undefined) {
-        return {
-          ...state,
-          cart: [action.payload],
-        };
-      } else {
-        const index = state.cart.findIndex((a) => a.id === action.payload.id);
-        if (index !== -1) {
-          newState.cart[index].amount += action.payload.amount;
-          console.log("amount is : ", newState.cart[index].amount);
-          console.log("newState is : ", newState);
-          return newState;
-        }
-      }
-
-      return {
-        ...state,
-        cart: [...state.cart, action.payload],
-      };
-
-    case "delete-in-cart":
-      console.log("in reducer :", action.payload.id);
-      if (state.cart !== undefined) {
-        if (state.cart.findIndex((a) => a.id === action.payload.id) !== -1) {
-          const newState = state.cart.filter((object) => {
-            return object.id !== action.payload.id;
-          });
-          return {
-            ...state,
-            cart: newState,
-          };
-        }
-      }
-      return {
-        ...state,
-        cart: [...state.cart, action.payload],
-      };
-    default:
-      return state;
   }
 }
 export { reducer };
+
+function handleAddProductFavorite(globalState, action) {
+  let oldProductsFavorite = globalState.productsFavorite
+  let newProductFavorite = action.payload
+  let productId = newProductFavorite.id
+  let isHaveNewProductInProductsFavorite = oldProductsFavorite.findIndex(product => product.id === productId) !== -1
+  if (isHaveNewProductInProductsFavorite) {
+    let productsFavoriteToggleProductOut = oldProductsFavorite.filter(product => product.id !== productId)
+    return {
+      ...globalState,
+      productsFavorite: productsFavoriteToggleProductOut
+    }
+  } else {
+    oldProductsFavorite.push(newProductFavorite)
+    return globalState
+  }
+
+}
+
+function handleSetAmountProduct(globalState, action) {
+  return {
+    ...globalState,
+    amountProduct: action.payload
+  }
+
+}
+
+function handleIncreaseAmountProduct(globalState) {
+  let amountProduct = globalState.amountProduct
+  let idProductShow = globalState.ShowProduct.id - 1
+  let amountProductStock = globalState.ProductJson.products[idProductShow].stock
+  console.log(amountProductStock);
+  if (amountProduct < amountProductStock) {
+    return {
+      ...globalState,
+      amountProduct: globalState.amountProduct + 1
+    }
+  }
+  return globalState
+}
+
+function handleDecreaseAmountProduct(globalState, action) {
+  let amountProduct = globalState.amountProduct
+  if (amountProduct > 1) {
+    return {
+      ...globalState,
+      amountProduct: globalState.amountProduct - 1
+    }
+  }
+  return globalState
+}
+
+function handleClearAmountProduct(globalState, action) {
+  return {
+    ...globalState,
+    amountProduct: 1
+  }
+}
+
+function handleAddToCart(globalState, action) {
+  let productInCart = globalState.cart
+  let product = action.payload
+  let productId = product.id
+  let productAmountAdded = globalState.amountProduct
+  let isHaveProductInCart = FindIdInArray(productInCart, productId)
+  if (isHaveProductInCart) {
+    globalState.cart = productInCart.map((product) => {
+      let id = product.id
+      let isHaveProductIdInCart = productId === id
+      let amountProductAddLessMoreStock = product.amount + productAmountAdded <= product.stock
+      if (isHaveProductIdInCart) {
+        if (amountProductAddLessMoreStock) {
+          product.amount += productAmountAdded
+        }
+        else {
+          product.amount = product.stock
+        }
+      }
+      return product
+    })
+  }
+  else {
+    globalState.cart.push(product)
+  }
+  return globalState
+}
+
+function FindIdInArray(arrayInPut, id) {
+  return arrayInPut.findIndex(value => value.id === id) !== -1
+}

@@ -1,6 +1,8 @@
-.HomeTemplate {
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+.home-template {
   background-color: var(--bgc-1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
 }

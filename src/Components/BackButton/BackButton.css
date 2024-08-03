@@ -1,16 +1,8 @@
-#boxBackButton {
-  width: 100%;
-  #back {
-    margin: 1rem;
-    color: rgb(179, 179, 179);
-    font-weight: bold;
-    display: flex;
-    width: fit-content;
-  }
+.btn-back {
+  position: fixed;
+  top: 0;
+  left: var(--edge-mobile);
+  top: var(--edge-mobile);
+  z-index: 1;
 
-  #back:hover {
-    font-weight: bold;
-    cursor: pointer;
-    color: rgb(0, 153, 153);
-  }
 }

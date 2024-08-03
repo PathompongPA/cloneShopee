@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
-import { FooterComponent, NavbarComponent } from "../../Components";
 import { useEffect } from "react";
 import { GoToTop } from "../../Initials";
+import { FooterComponent, NavbarComponent } from "../../Components";
 
 export default function LoginTemplate() {
   useEffect(() => {

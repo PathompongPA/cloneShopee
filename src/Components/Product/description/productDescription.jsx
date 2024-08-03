@@ -1,8 +1,8 @@
+import "./productDescription.css"
 import { SomeDate } from "../../../App";
-import "./detailProduct.css";
 import { useContext, useEffect } from "react";
 
-export default function DetailProduct() {
+export default function ProductDescription() {
   const { globalState } = useContext(SomeDate);
   useEffect(() => { }, []);
 

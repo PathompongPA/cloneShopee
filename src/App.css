@@ -1,122 +1,31 @@
-root {
-  display: block;
-  background-color: rgb(77, 77, 77);
-}
-
-* {
-  --bgc-1: rgb(230, 230, 230);
-  border: 0;
-  margin: 0;
-  font-family: myfont;
-}
-
 @font-face {
   font-family: "myfont";
   src: url("./assets/fonts/prompt/Prompt-Regular.ttf");
 }
 
-.boxComponent {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+* {
+  --color-text: rgb(119, 119, 119);
+  --color-bd: rgb(119, 119, 119);
+  --bgc-1: rgb(230, 230, 230);
+  --bgc-2: rgb(26, 128, 128);
+  --edge-mobile: 2vw;
+  --gray: #878787;
+  border: 0;
+  margin: 0;
+  font-family: myfont;
+  box-sizing: border-box;
 }
 
-.Content {
-  height: 100vh;
+html {
+  scroll-behavior: smooth;
 }
 
-.bd1 {
-  border: 1px solid black;
+body {
+  background-color: var(--bgc-1);
+
 }
 
-.h1 {
-  height: 1rem;
-}
-
-.h3 {
-  height: 3rem;
-}
-
-.h4 {
-  height: 4rem;
-}
-
-.h5 {
-  height: 5rem;
-}
-
-.h100 {
-  height: 100vh;
-}
-
-.btn {
-  padding: 1rem;
-  height: 1rem;
-  width: 1rem;
-  margin: 0.5rem;
-  align-items: center;
-  justify-content: center;
-}
-
-.no {
-  display: none;
-}
-
-.pdt1 {
-  padding-top: 5rem;
-}
-
-.bg {
-  background-color: rgb(115, 240, 240);
-}
-
-.tab {
-  tab-size: 1rem;
-}
-
-input :focus {
-  outline: none;
-  border: none;
-}
-
-button {
-  align-items: center;
-  justify-content: center;
-  width: 35px;
-  height: 35px;
-  margin: 0.5rem;
-  border-radius: 1rem;
-  color: white;
-  font-weight: bolder;
-  cursor: pointer;
-  background-color: rgb(204, 204, 204);
-  user-select: none;
-  /* background-color: rgb(26, 153, 153); */
-}
-
-button:hover {
-  background-color: rgb(30, 165, 165);
-}
-
-button:active {
-  background-color: rgb(10, 125, 125);
-}
-
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #888;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
+a {
+  text-decoration: none;
+  color: black;
 }

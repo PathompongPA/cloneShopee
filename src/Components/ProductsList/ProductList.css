@@ -1,21 +1,15 @@
-.ProductList {
-  padding: 2vw;
+.productList {
+  padding: var(--edge-mobile);
   background-color: rgb(239, 239, 239);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.ProductList__BoxListCardProduct {
   display: grid;
   grid-template-columns: repeat(2, 50%);
   grid-gap: 1vw;
-  width: 100%;
+  justify-content: center;
 }
 
 @media only screen and (min-width: 425px) {
-  .ProductList__BoxListCardProduct {
+  .productList {
+    justify-content: center;
     display: grid;
     grid-template-columns: repeat(4, 25%);
     grid-gap: calc(1vw/4);

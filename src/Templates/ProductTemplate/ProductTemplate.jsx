@@ -1,44 +1,45 @@
 import "./ProductTemplate.css";
 import { useContext, useEffect } from "react";
 import { SomeDate } from "../../App";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import GetApi from "../../Initials/GetApi";
-import {
-  FooterComponent,
-  LoaderComponent,
-  NavbarComponent,
-  ProductComponent,
-} from "../../Components";
 import { GoToTop } from "../../Initials";
+import { FooterComponent, LoaderComponent, NavbarComponent, ProductDescription, ProductGallery, ProductListComponent, ProductReview, ProductShop, ProductTitle } from "../../Components";
+
 
 export default function ProductTemplate() {
   const { globalState, dispatch } = useContext(SomeDate);
   const { id } = useParams();
+  const path = useLocation()
 
   useEffect(() => {
-    dispatch({ type: "clear-count" });
-    dispatch({ type: "clearShowProduct" });
-
+    dispatch({ type: "clear-amount-product" });
+    dispatch({ type: "clear-product-detail" });
     GetApi("https://dummyjson.com/products/" + id, "GET").then((result) => {
-      dispatch({ type: "setShowProduct", payload: result });
+      dispatch({ type: "set-product-detail", payload: result });
     });
-
     GoToTop();
   }, [dispatch, id]);
 
-  return (
-    <div id="boxProductTemplate">
-      <NavbarComponent />
-      {globalState.ShowProduct !== undefined ? (
-        <div id="boxContentProductTemplate">
-          <ProductComponent />
-        </div>
-      ) : (
-        <div id="boxLoaderProductTemplate">
-          <LoaderComponent />
-        </div>
-      )}
-      <FooterComponent />
-    </div>
-  );
+  if (path.pathname === "/") {
+    console.log("::: path ", path);
+  }
+
+  let haveProductForShow = globalState.ShowProduct !== undefined
+  if (haveProductForShow) {
+    return (
+      <div className="product-template">
+        <NavbarComponent />
+        <ProductGallery />
+        <ProductTitle />
+        <ProductShop />
+        <ProductDescription />
+        <ProductReview/>
+        <ProductListComponent />
+        <FooterComponent />
+      </div>
+    );
+  } else {
+    return <LoaderComponent />
+  }
 }

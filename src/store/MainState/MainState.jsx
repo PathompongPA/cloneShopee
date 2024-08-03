@@ -1,5 +1,7 @@
-let initial = {
-  count: 1,
+let initialState = {
+  cart :[],
+  productsFavorite: [],
+  amountProduct: 1,
   isState: false,
   user: "admin",
   password: "",
@@ -21,4 +23,4 @@ let initial = {
     },
   ],
 };
-export { initial };
+export { initialState };

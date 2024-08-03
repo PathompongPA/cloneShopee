@@ -1,23 +1,21 @@
-import { useEffect } from "react";
-import { FooterComponent, NavbarComponent } from "../../Components";
+import { useContext } from "react";
+import { SomeDate } from "../../App";
+import { FooterComponent, LoaderComponent, NavbarComponent } from "../../Components";
 import { Outlet } from "react-router-dom";
 import "./HomeTemplate.css";
 
 export default function HomeTemplate() {
-
-  useEffect(() => {
-    GoToTop();
-  }, []);
-
-  return (
-    <div className="HomeTemplate">
-      <NavbarComponent />
-      <Outlet />
-      <FooterComponent />
-    </div>
-  );
-}
-
-const GoToTop = () => {
-  window.scrollTo(0, 0);
+  const { globalState } = useContext(SomeDate)
+  let isLoadFinish = globalState.ProductJson !== undefined
+  if (isLoadFinish) {
+    return (
+      <div className="home-template">
+        <NavbarComponent />
+        <Outlet />
+        <FooterComponent />
+      </div>
+    );
+  } else {
+    <LoaderComponent />
+  }
 }

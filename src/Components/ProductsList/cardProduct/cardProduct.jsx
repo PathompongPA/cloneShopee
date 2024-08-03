@@ -33,10 +33,9 @@ export default function CardProduct(props) {
         });
       }
     }
-  }, [isFavoriteIconOn, globalState.ProductsFavorite, props.favoriteIconOn, props.productDetail, tagFavorite.classList]);
+  }, [globalState.ProductsFavorite, isFavoriteIconOn, props.productDetail, tagFavorite.classList]);
 
   function TagDiscount() {
-    console.log("discount is not zero ", isDicountIsNotZero, ProductDiscountPercent, ProductName, typeof ProductDiscountPercent);
     if (isDiscountIconOn && isDicountIsNotZero) {
       return (
         <div className="tag-discount">

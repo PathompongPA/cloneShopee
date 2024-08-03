@@ -1,6 +1,6 @@
-import "./shop.css";
+import "./productShop.css";
 
-export default function ShopComponent() {
+export default function ProductShop() {
   return (
     <div id="boxShopComponent">
       <div id="boxBranderShopComponent">Brander</div>
