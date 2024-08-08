@@ -1,66 +1,107 @@
+:root {
+  --pd-1: calc(100vw - 768px);
+}
+
 .navbar {
-  position: fixed;
-  width: 100%;
   top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: var(--bgc-2);
   transition: background-color 1s;
+
+  @media (width <=768px) {
+    position: fixed;
+  }
+
+  @media (width > 768px) {
+    position: sticky;
+  }
+}
+
+.navbar__box {
   display: flex;
   justify-content: space-between;
-  background-color: var(--bgc-1);
   padding: var(--edge-mobile);
-  z-index: 1;
-  color: var(--color-bd);
-  border-color: var(--color-bd);
-}
+  gap: var(--edge-mobile);
+  color: white;
+  width: 100%;
 
-.navbar[data-scroll="0"] {
-  background-color: inherit;
-  border-color: var(--color-bd);
+  @media (width > 768px) {
+    width: 768px;
+  }
 }
-
 
 .navbar__btn-back {
-  user-select: none;
-  color: inherit;
+  @media (width>768px) {
+    display: none;
+  }
 }
 
 .navbar__btn-back--disable {
   display: none;
 }
 
-.navbar__search {
-  color: inherit;
+.navbar__logo {
+  @media (width<=768px) {
+    display: none;
+  }
 }
 
-.navbar__search--disable {
-  display: none;
+.navbar__search {
+  display: flex;
+  width: 80%;
+
+  @media (width <=768px) {
+    gap: var(--edge-mobile);
+    justify-content: center;
+  }
+
+  @media (width > 768px) {
+    width: 40%;
+    justify-content: center;
+    gap: 1rem;
+  }
 }
 
 .search__input {
-  border-color: var(--color-bd);
-  background-color: inherit;
-  border-width: 1px;
-  border-style: solid;
-  color: inherit;
+  width: 100%;
+  border-radius: 1vh;
+  color: black;
+
+  @media (width<768px) {}
 }
 
 .search__submit {
-  color: inherit;
-}
-
-.navbar__cart {
-  order: 5;
-  color: inherit;
-}
-
-
-.navbar__logo {
-  display: none;
+  display: block;
 }
 
 .navbar__favorite {
-  display: none;
+  @media (width<768px) {
+    display: none;
+  }
+}
+
+.navbar__cart {
+  display: block;
 }
 
 .navbar__profile {
-  display: none;
+  @media (width<768px) {
+    display: none;
+  }
+}
+
+/* effect when scroll  */
+@media (width<=768px) {
+  .navbar[data-scroll="0"] {
+    color: var(--color-text);
+    background-color: rgb(1, 1, 1, 0.15);
+  }
+
+  .search__input[data-scroll="0"] {
+    background-color: rgba(255, 255, 255, 0.4);
+  }
 }

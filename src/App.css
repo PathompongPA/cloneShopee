@@ -1,31 +1,38 @@
 @font-face {
-  font-family: "myfont";
+  font-family: "font-1";
   src: url("./assets/fonts/prompt/Prompt-Regular.ttf");
 }
 
-* {
-  --color-text: rgb(119, 119, 119);
-  --color-bd: rgb(119, 119, 119);
+:root {
+  --color-text: rgb(111, 111, 111);
+  --color-bd: rgb(153, 153, 153);
   --bgc-1: rgb(230, 230, 230);
   --bgc-2: rgb(26, 128, 128);
-  --edge-mobile: 2vw;
-  --gray: #878787;
-  border: 0;
+  --edge-mobile: 2vh;
+  --w-desktop: 768px;
+}
+
+* {
   margin: 0;
-  font-family: myfont;
+  padding: 0px;
+  font-family: font-1;
+  color: inherit;
+  border-color: inherit;
+  /* background-color: inherit; */
   box-sizing: border-box;
 }
 
 html {
   scroll-behavior: smooth;
-}
-
-body {
-  background-color: var(--bgc-1);
-
+  color: var(--color-text);
+  outline: none;
+  border: 0px solid white;
 }
 
 a {
   text-decoration: none;
-  color: black;
+}
+
+input {
+  border: none;
 }

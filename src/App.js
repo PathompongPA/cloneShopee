@@ -21,7 +21,7 @@ function App() {
 
   window.onscroll = () => {
     DownloadMoreProduct()
-    SetAttributeForChangeAmountImage()
+    SetAttributeDataScrollForChangeAmountImage()
   }
 
   return (
@@ -30,11 +30,13 @@ function App() {
     </SomeDate.Provider>
   );
 
-  function SetAttributeForChangeAmountImage() {
+  function SetAttributeDataScrollForChangeAmountImage() {
     const navbar = document.getElementsByClassName("navbar")[0]
+    const search__input = document.getElementsByClassName("search__input")[0]
     let positionScroll = window.scrollY
     try {
       navbar.setAttribute("data-scroll", positionScroll)
+      search__input.setAttribute("data-scroll", positionScroll)
     } catch (error) {
     }
   }
