@@ -1,5 +1,29 @@
-.product-shop {}
+.product-shop {
+    display: flex;
+    width: 100%;
+    background-color: #fff;
+    gap: var(--edge-mobile);
+    padding: var(--edge-mobile);
 
-.product-shop__banner {}
+    @media (width > 768px) {
+        width: 768px;
+    }
+}
 
-.product-shop__content {}
+.product-shop__img-shop {
+    background-color: var(--bgc-1);
+    width: 50px;
+    font-size: smaller;
+    border-radius: 100%;
+    align-content: center;
+    text-align: center;
+    aspect-ratio: 1/1;
+}
+
+.product-shop__title {}
+
+.title__name {}
+
+.title__description {
+    font-size: small;
+}
