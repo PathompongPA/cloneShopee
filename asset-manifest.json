@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/cloneShopee/static/css/main.970c6cfd.css",
-    "main.js": "/cloneShopee/static/js/main.d1a6f668.js",
+    "main.css": "/cloneShopee/static/css/main.91af439c.css",
+    "main.js": "/cloneShopee/static/js/main.cbdf4d25.js",
     "static/js/787.bc07a2e0.chunk.js": "/cloneShopee/static/js/787.bc07a2e0.chunk.js",
     "static/media/Prompt-Regular.ttf": "/cloneShopee/static/media/Prompt-Regular.a8979f5fddba897421a7.ttf",
     "index.html": "/cloneShopee/index.html",
-    "main.970c6cfd.css.map": "/cloneShopee/static/css/main.970c6cfd.css.map",
-    "main.d1a6f668.js.map": "/cloneShopee/static/js/main.d1a6f668.js.map",
+    "main.91af439c.css.map": "/cloneShopee/static/css/main.91af439c.css.map",
+    "main.cbdf4d25.js.map": "/cloneShopee/static/js/main.cbdf4d25.js.map",
     "787.bc07a2e0.chunk.js.map": "/cloneShopee/static/js/787.bc07a2e0.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.970c6cfd.css",
-    "static/js/main.d1a6f668.js"
+    "static/css/main.91af439c.css",
+    "static/js/main.cbdf4d25.js"
   ]
 }
