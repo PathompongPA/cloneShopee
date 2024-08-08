@@ -1,36 +1,27 @@
 import "./productDescription.css"
 import { SomeDate } from "../../../App";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 
 export default function ProductDescription() {
   const { globalState } = useContext(SomeDate);
-  useEffect(() => { }, []);
+  let product = globalState.ShowProduct
+  let category = product.category ? product.category : "-"
+  let brand = product.brand ? product.brand : "-"
+  let description = product.description ? product.description : "-"
 
-  return (
-    <div id="boxDetailProduct">
-      <div id="boxTitleDetailProduct">Product details</div>
-      {globalState.ShowProduct && (
-        <>
-          <div id="boxContentDetailProduct">
-            <div className="sectionDetailProduct"> category</div>
-            <div className="valueSectionDetailProduct">
-              {globalState.ShowProduct.category}
-            </div>
-            <div className="sectionDetailProduct">brand</div>
-            <div className="valueSectionDetailProduct">
-              {globalState.ShowProduct.brand}
-            </div>
-            <div className="sectionDetailProduct">quantity</div>
-            <div className="valueSectionDetailProduct">
-              {globalState.ShowProduct.stock}
-            </div>
-          </div>
-          <div id="titleDescription"> Description</div>
-          <div id="boxDescriptionDetailProduct">
-            <div> {globalState.ShowProduct.description}</div>
-          </div>
-        </>
-      )}
-    </div>
-  );
+
+  let isHaveShowProduct = product !== undefined
+  if (isHaveShowProduct) {
+    return (
+      <div className="product-description">
+        <div className="product-description__title">Product details</div>
+        <div className="product-description__topic-category"> category</div>
+        <div className="product-description__category"> {category} </div>
+        <div className="product-description__topic-brand">brand</div>
+        <div className="product-description__brand"> {brand} </div>
+        <div className="product-description__topic-description"> Description</div>
+        <div className="product-description__description">{description}</div>
+      </div>
+    );
+  }
 }

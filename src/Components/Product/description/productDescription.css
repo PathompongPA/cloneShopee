@@ -1,0 +1,69 @@
+@media (width <=768px) {
+    [class*="product-description__"] {
+        font-size: medium;
+    }
+
+    [class*="product-description__topic"] {
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+}
+
+.product-description {
+    padding: var(--edge-mobile);
+    background-color: #fff;
+    display: grid;
+    gap: var(--edge-mobile);
+
+    @media (width<=768px) {
+        width: 100%;
+        grid-template-areas:
+            "t-category  t-brand"
+            "category  brand"
+            "t-description t-description"
+            "description description"
+        ;
+    }
+
+    @media (width > 768px) {
+        width: 768px;
+        grid-template-areas:
+            "title title title title "
+            "... t-category category ..."
+            "... t-brand brand ..."
+            "... t-description description ..."
+        ;
+    }
+}
+
+.product-description__title {
+    grid-area: title;
+
+    @media (width <=768px) {
+        display: none;
+    }
+}
+
+.product-description__topic-category {
+    grid-area: t-category;
+}
+
+.product-description__category {
+    grid-area: category;
+}
+
+.product-description__topic-brand {
+    grid-area: t-brand;
+}
+
+.product-description__brand {
+    grid-area: brand;
+}
+
+.product-description__topic-description {
+    grid-area: t-description;
+}
+
+.product-description__description {
+    grid-area: description;
+}
