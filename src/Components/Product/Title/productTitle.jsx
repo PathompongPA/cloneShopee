@@ -18,22 +18,16 @@ export default function ProductTitle() {
   if (isHaveProductForShow) {
     return (
       <div className="product-detail" >
-        <div className="product-detail__detail detail">
-          <div className="detail__status">
-            <div className="status__price"> ฿{productPrice} </div>
-            <div className="status__add-to-favorite" onClick={handleToggleFavorite} > add to favorite </div>
-          </div>
-          <h2 className="detail__name"> {productTitle} </h2>
-          <div className="detail__title">
-            <div className="title__ratting"> ratting : {productRatting} </div>
-            <div className="title__amount-in-stock"> In stock : {productStock} piece </div>
-          </div>
-          <div className="detail__add-item add-item">
-            <Link className="add-item__amount">{productAmount}</Link>
-            <Link className="add-item__decrease" onClick={handleDecrese} > - </Link>
-            <Link className="add-item__increase" onClick={handleIncrese} > + </Link>
-            <Link className="add-item__add-to-cart" onClick={handleAddItem} > add to cart </Link>
-          </div>
+        <div className="product-detail__price"> ฿{productPrice} </div>
+        <Link className="product-detail__add-to-favorite" onClick={handleToggleFavorite} > add to favorite </Link>
+        <h2 className="product-detail__name"> {productTitle} </h2>
+        <div className="product-detail__ratting"> ratting : {productRatting} </div>
+        <div className="product-detail__amount-in-stock"> In stock : {productStock} piece </div>
+        <div className="product-detail__add-item add-item">
+          <Link className="add-item__amount">{productAmount}</Link>
+          <Link className="add-item__decrease" onClick={handleDecrese} > - </Link>
+          <Link className="add-item__increase" onClick={handleIncrese} > + </Link>
+          <Link className="add-item__add-to-cart" onClick={handleAddItem} > add to cart </Link>
         </div>
       </div>
     )
