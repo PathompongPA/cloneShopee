@@ -8,6 +8,7 @@ export default function ProductGallery() {
     let productTitle = product.title
     let amountImage = product.images.length
     let urlThumbnailImage = product.images[0]
+
     useEffect(() => {
         let elementBtnNext = document.getElementsByClassName("product-gallery__btn-next-image")[0]
         if (amountImage !== 1) {
@@ -19,23 +20,23 @@ export default function ProductGallery() {
         <div className="product-gallery">
             <img className="product-gallery__image-main" src={urlThumbnailImage} alt={productTitle} />
             <div className="product-gallery__image-list image-list" onScroll={handleGalleryScroll} >
+                <button className="product-gallery__btn-next-image product-gallery__btn-next-image--disable" onClick={handleScrollRight}> {">"} </button>
+                <button className="product-gallery__btn-prev-image product-gallery__btn-prev-image--disable" onClick={handleScrollLeft}> {"<"} </button>
                 {product.images.map((props, index) =>
                     <img className="image-list__image" src={props} alt={productTitle + index} onMouseOver={handleToggleImage()} key={props} />
                 )}
             </div>
             <div className="product-gallery__amount-image" deta-amount="1">{"/" + amountImage}</div>
-            <button className="product-gallery__btn-next-image product-gallery__btn-next-image--disable" onClick={handleScrollRight}> {">"} </button>
-            <button className="product-gallery__btn-prev-image product-gallery__btn-prev-image--disable" onClick={handleScrollLeft}> {"<"} </button>
         </div>
     )
 
     function handleGalleryScroll() {
-        let elementgalleryImageList = document.getElementsByClassName("product-gallery__image-list")[0]
+        let elementGalleryImageList = document.getElementsByClassName("product-gallery__image-list")[0]
         let elementBtnNext = document.getElementsByClassName("product-gallery__btn-next-image")[0]
         let elementBtnPrev = document.getElementsByClassName("product-gallery__btn-prev-image")[0]
         let elementAmountImage = document.getElementsByClassName("product-gallery__amount-image")[0]
-        let widthImage = elementgalleryImageList.scrollWidth / amountImage
-        let positionScroll = elementgalleryImageList.scrollLeft + widthImage
+        let widthImage = elementGalleryImageList.scrollWidth / amountImage
+        let positionScroll = elementGalleryImageList.scrollLeft + widthImage
         let indexImage = Math.round(positionScroll / widthImage)
         elementAmountImage.setAttribute("data-amount", indexImage)
         switch (indexImage) {
