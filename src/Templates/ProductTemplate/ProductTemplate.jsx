@@ -3,8 +3,16 @@ import { useContext, useEffect } from "react";
 import { SomeDate } from "../../App";
 import { useLocation, useParams } from "react-router-dom";
 import GetApi from "../../Initials/GetApi";
+import {
+  FooterComponent,
+  LoaderComponent,
+  NavbarComponent,
+  ProductCard,
+  ProductDescription,
+  ProductListComponent,
+  ProductReview
+} from "../../Components";
 import { GoToTop } from "../../Initials";
-import { FooterComponent, LoaderComponent, NavbarComponent, ProductDescription, ProductGallery, ProductListComponent, ProductReview, ProductShop, ProductTitle } from "../../Components";
 
 
 export default function ProductTemplate() {
@@ -30,11 +38,9 @@ export default function ProductTemplate() {
     return (
       <div className="product-template">
         <NavbarComponent />
-        <ProductGallery />
-        <ProductTitle />
-        <ProductShop />
+        <ProductCard />
         <ProductDescription />
-        <ProductReview/>
+        <ProductReview />
         <ProductListComponent />
         <FooterComponent />
       </div>

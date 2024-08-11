@@ -7,7 +7,9 @@ import "./HomeTemplate.css";
 export default function HomeTemplate() {
   const { globalState } = useContext(SomeDate)
   let isLoadFinish = globalState.ProductJson !== undefined
-  if (isLoadFinish) {
+  if (!isLoadFinish) {
+    <LoaderComponent />
+  } else {
     return (
       <div className="home-template">
         <NavbarComponent />
@@ -15,7 +17,5 @@ export default function HomeTemplate() {
         <FooterComponent />
       </div>
     );
-  } else {
-    <LoaderComponent />
   }
 }

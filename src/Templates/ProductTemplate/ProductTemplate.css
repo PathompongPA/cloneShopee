@@ -1,1 +1,12 @@
-.product-template {}
+.product-template {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bgc-1);
+    gap: 1vh;
+
+    @media (width > 768px) {
+        gap: 1vh;
+    }
+}

@@ -71,7 +71,6 @@
   justify-content: center;
   align-items: center;
   position: absolute;
-  z-index: 0;
   padding: 1%;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 4px 4px 0 rgba(0, 0, 0, 0.19);
 
@@ -93,7 +92,6 @@
 .tag-favorite {
   width: 40px;
   height: 40px;
-  z-index: 0;
   top: 3%;
   left: 5%;
   position: absolute;
