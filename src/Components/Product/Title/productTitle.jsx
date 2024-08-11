@@ -14,7 +14,6 @@ export default function ProductTitle() {
   let productStock = product.stock
   let productPrice = (globalState.ShowProduct.price * ((100 - globalState.ShowProduct.discountPercentage) / 100) * 30).toLocaleString(undefined, { maximumFractionDigits: 0 })
 
-
   if (isHaveProductForShow) {
     return (
       <div className="product-detail" >
@@ -43,8 +42,6 @@ export default function ProductTitle() {
     dispatch({ type: "increase-amount-product" })
   }
 
-
-
   function handleAddItem() {
     let objDataProduct = globalState.ShowProduct;
     objDataProduct["amount"] = globalState.amountProduct;
@@ -57,6 +54,4 @@ export default function ProductTitle() {
       payload: globalState.ShowProduct
     });
   }
-
-
 }
