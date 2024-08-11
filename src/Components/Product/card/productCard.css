@@ -1,0 +1,9 @@
+.card {
+    background-color: #fff;
+
+    @media (width> 768px) {
+        grid-template-columns: repeat(2, 1fr);
+        width: 768px;
+        display: flex;
+    }
+}
