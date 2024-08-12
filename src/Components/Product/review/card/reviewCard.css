@@ -1,0 +1,51 @@
+.review-card {
+    padding: 2vh;
+    display: grid;
+    gap: 1vh;
+    border-radius: 2vh;
+    background-color: var(--bgc-3);
+    grid-template-areas:
+        'name'
+        'email'
+        'rating'
+        'comment'
+        'date';
+}
+
+.review-card__name {
+    grid-area: name;
+}
+
+.review-card__email {
+    grid-area: email;
+    font-size: small;
+}
+
+.review-card__ratting {
+    grid-area: rating;
+}
+
+.review-card__comment {
+    grid-area: comment;
+    padding: 2vh;
+    background-color: #fff;
+    border-radius: 2vh;
+}
+
+.review-card__date {
+    font-size: small;
+    grid-area: date;
+}
+
+.material-symbols-outlined {
+    color: rgb(238, 238, 0);
+    font-variation-settings:
+        'FILL' 1,
+        'wght' 400,
+        'GRAD' 1,
+        'opsz' 24
+}
+
+.material-symbols-outlined--disable {
+    color: #8e8e8e;
+}

@@ -1,5 +1,15 @@
-#boxReviewComponent {
-  margin: 0.25rem;
-  background-color: white;
-  height: 500px;
+.product-review {
+  background-color: #fff;
+  display: grid;
+  width: 100%;
+  padding: 2vh;
+  gap: 3vh;
+
+  @media (width > 768px) {
+    width: 768px;
+  }
+}
+
+.product-review__title {
+  font-weight: bolder;
 }

@@ -8,6 +8,7 @@
   --color-bd: rgb(153, 153, 153);
   --bgc-1: rgb(230, 230, 230);
   --bgc-2: rgb(26, 128, 128);
+  --bgc-3: rgb(240, 240, 240);
   --edge-mobile: 2vh;
   --w-desktop: 768px;
 }
@@ -17,7 +18,6 @@
   padding: 0px;
   font-family: font-1;
   color: inherit;
-  border-color: inherit;
   box-sizing: border-box;
 }
 
