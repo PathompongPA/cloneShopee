@@ -1,5 +1,5 @@
 @media (width>768px) {
-  [class*="product-detail__"] {
+  [class*="product-title__"] {
     text-align: left;
     align-content: center;
   }
@@ -15,18 +15,19 @@
     font-size: x-large;
   }
 
-  [class*="product-detail__"] {
+  [class*="product-title__"] {
     font-size: small;
   }
 }
 
-.product-detail {
+.product-title {
   display: grid;
   width: 100%;
   padding: 2vh;
 
   @media (width<=768px) {
-    gap: 1vh;
+    gap: 2vh;
+    padding-bottom: 3vh;
     grid-template-areas:
       'price btnFavorite'
       'name name'
@@ -46,21 +47,18 @@
   }
 }
 
-.product-detail__price {
+.product-title__price {
   grid-area: price;
   align-content: center;
-
-
-  @media (width<=768px) {
-    font-size: larger;
-  }
+  font-size: larger;
+  font-weight: bolder;
 
   @media (width>768px) {
     text-align: center;
   }
 }
 
-.product-detail__add-to-favorite {
+.product-title__add-to-favorite {
   grid-area: btnFavorite;
   align-content: center;
 
@@ -73,16 +71,16 @@
   }
 }
 
-.product-detail__name {
+.product-title__name {
   grid-area: name;
   font-size: larger;
 }
 
-.product-detail__ratting {
+.product-title__ratting {
   grid-area: ratting;
 }
 
-.product-detail__amount-in-stock {
+.product-title__amount-in-stock {
   grid-area: amountStock;
 
   @media (width<=768px) {
@@ -94,7 +92,7 @@
   }
 }
 
-.product-detail__add-item,
+.product-title__add-item,
 .add-item {
   grid-area: addItem;
   text-align: center;
