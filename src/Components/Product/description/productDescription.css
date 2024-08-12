@@ -1,6 +1,6 @@
 @media (width <=768px) {
     [class*="product-description__"] {
-        font-size: medium;
+        font-size: small;
     }
 
     [class*="product-description__topic"] {
@@ -10,14 +10,16 @@
 }
 
 .product-description {
-    padding: var(--edge-mobile);
-    background-color: #fff;
     display: grid;
-    gap: var(--edge-mobile);
+    padding: var(--edge-mobile);
+    padding-bottom: 4vh;
+    gap: 3vh;
+    background-color: #fff;
 
     @media (width<=768px) {
         width: 100%;
         grid-template-areas:
+            "title title"
             "t-category  t-brand"
             "category  brand"
             "t-description t-description"
@@ -27,6 +29,7 @@
 
     @media (width > 768px) {
         width: 768px;
+        gap: 2vh;
         grid-template-areas:
             "title title title title "
             "... t-category category ..."
@@ -37,11 +40,9 @@
 }
 
 .product-description__title {
+    font-size: medium;
+    font-weight: bold;
     grid-area: title;
-
-    @media (width <=768px) {
-        display: none;
-    }
 }
 
 .product-description__topic-category {
