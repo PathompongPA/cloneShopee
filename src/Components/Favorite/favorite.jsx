@@ -24,13 +24,13 @@ export default function FavoriteComponent() {
           {
             globalState.productsFavorite !== undefined ? (
               globalState.productsFavorite.map((props) => {
+                let productDetail = props
                 return (
                   <CardProduct
-                    productDetail={props}
-                    discount={false}
-                    isFavorite={false}
-                    isDeleteFavorite={true}
-                    key={props}
+                    discountIconOn={false}
+                    favoriteIconOn={true}
+                    productDetail={productDetail}
+                    key={productDetail.id}
                   />
                 )
               })

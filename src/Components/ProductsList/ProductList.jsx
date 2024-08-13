@@ -12,7 +12,11 @@ export default function ProductListComponent() {
     return (
       <div className="productList">
         {ListProducts.map(productDetail =>
-          < CardProduct discountIconOn={true} favoriteIconOn={true} productDetail={productDetail} key={productDetail.id} />
+          < CardProduct
+            discountIconOn={true}
+            favoriteIconOn={true}
+            productDetail={productDetail}
+            key={productDetail.id} />
         )}
       </div>)
   } else {

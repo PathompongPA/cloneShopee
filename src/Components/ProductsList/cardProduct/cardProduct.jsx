@@ -1,102 +1,24 @@
 import "./cardProduct.css";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { SomeDate } from "../../../App";
 
 export default function CardProduct(props) {
   const { globalState } = useContext(SomeDate);
   const ExchangeRate = 30
-  const tagFavorite = document.getElementsByClassName("tag-favorite")
-  let ProductDetail = props.productDetail
-  let ProductName = ProductDetail.title
-  let ProductUrl = `/product/${ProductDetail.id}/${ProductName.replace(/\s/g, "")}`
-  let ProductThumbnail = ProductDetail.thumbnail
-  let ProductDiscountPercent = ProductDetail.discountPercentage.toFixed(0)
-  let ProductPrice = Math.floor(ProductDetail.price * ExchangeRate)
-  let ProductPriceDiscount = (ProductPrice * ((100 - ProductDiscountPercent) / 100)).toLocaleString(undefined, { maximumFractionDigits: 0 })
+
+  let product = props.productDetail
+  let myFavoriteProduct = globalState.productsFavorite
+  let name = product.title
+  let url = `/product/${product.id}/${name.replace(/\s/g, "")}`
+  let thumbnail = product.thumbnail
+  let discountPercent = product.discountPercentage.toFixed(0)
+  let price = Math.floor(product.price * ExchangeRate)
+  let ProductPriceDiscount = (price * ((100 - discountPercent) / 100)).toLocaleString(undefined, { maximumFractionDigits: 0 })
 
   let isFavoriteIconOn = props.favoriteIconOn
   let isDiscountIconOn = props.discountIconOn
-  let isDicountIsNotZero = parseInt(ProductDiscountPercent) !== 0
-
-  useEffect(() => {
-    let haveProductsFavoriteInGlobalState = globalState.ProductsFavorite !== undefined
-    let haveProductDetail = props.productDetail !== undefined
-    if (isFavoriteIconOn && haveProductDetail) {
-      if (haveProductsFavoriteInGlobalState) {
-        // eslint-disable-next-line array-callback-return
-        globalState.ProductsFavorite.map((ProductDetail) => {
-          let haveProductInProductFavoriteState = ProductDetail.id === props.productDetail.id
-          if (haveProductInProductFavoriteState) {
-            tagFavorite.classList.toggle = "tag-favorite--show";
-          }
-        });
-      }
-    }
-  }, [globalState.ProductsFavorite, isFavoriteIconOn, props.productDetail, tagFavorite.classList]);
-
-  function TagDiscount() {
-    if (isDiscountIconOn && isDicountIsNotZero) {
-      return (
-        <div className="tag-discount">
-          <span className="tag-discount__title" key={"decrease" + props.productDetail.title}>
-            ลด
-          </span>
-          <span className="tag-discount__amount">
-            {ProductDiscountPercent}%
-          </span>
-        </div >
-      )
-    }
-  }
-
-  function TagFavorite() {
-    if (isFavoriteIconOn) {
-      return (
-        <div className="tag-favorite addHeard">
-          <div className="tag-favorite__heart"></div>
-        </div>
-      )
-    }
-  }
-
-  function Image() {
-    return <img className="card-product__image"
-      src={ProductThumbnail}
-      key={"img" + ProductName}
-      alt={ProductName}
-    />
-  }
-
-  function Title() {
-    return (
-      <div className="card-product__title" key={"title" + ProductName}> {ProductName} </div>
-    )
-  }
-
-  function Price() {
-    if (isDiscountIconOn && isDicountIsNotZero) {
-      return (
-        <div className="card-product__price " key={"price" + ProductPrice}>
-          <div className="price__original price__original--kill-price"> {ProductPrice} </div>
-          <div className="price__discount"> ฿{ProductPriceDiscount} </div>
-        </div>
-      )
-    }
-    else {
-      return (
-        <div className="card-product__price" key={"price" + ProductPrice}>
-          <div className="price__original"> ฿{ProductPrice} </div>
-        </div>
-      )
-    }
-  }
-
-  function Box(props) {
-    return (
-      <Link className="card-product" to={ProductUrl} key={"box" + ProductName} >{props.children}</Link>
-    )
-  }
+  let isDicountIsNotZero = parseInt(discountPercent) !== 0
 
   return (
     <Box>
@@ -107,4 +29,75 @@ export default function CardProduct(props) {
       <TagFavorite />
     </Box>
   );
+
+  function TagDiscount() {
+    if (isDiscountIconOn && isDicountIsNotZero) {
+      return (
+        <div className="tag-discount">
+          <span className="tag-discount__title"> ลด </span>
+          <span className="tag-discount__amount"> {discountPercent}% </span>
+        </div >
+      )
+    }
+  }
+
+  function TagFavorite() {
+    if (isFavoriteIconOn) {
+      let classNameFavorite = "tag-favorite tag-favorite--disable"
+      let isHaveProductInFavorite = findIdInArray(product.id, myFavoriteProduct)
+      if (isHaveProductInFavorite) {
+        classNameFavorite = classNameFavorite.split(" ")[0]
+      }
+      return (
+        <div className={classNameFavorite}>
+          <div className="material-symbols-outlined tag-favorite__favorite"> favorite </div>
+        </div>
+      )
+    }
+  }
+
+  function Image() {
+    return <img className="card-product__image" src={thumbnail} alt={"imgae : " + name} />
+  }
+
+  function Title() {
+    return (
+      <div className="card-product__title"> {name} </div>
+    )
+  }
+
+  function Price() {
+    if (isDiscountIconOn && isDicountIsNotZero) {
+      return (
+        <div className="card-product__price" >
+          <div className="price__original price__original--kill-price"> {price} </div>
+          <div className="price__discount"> ฿{ProductPriceDiscount} </div>
+        </div>
+      )
+    }
+    else {
+      return (
+        <div className="card-product__price">
+          <div className="price__original"> ฿{price} </div>
+        </div>
+      )
+    }
+  }
+
+  function Box(props) {
+    return (
+      <Link className="card-product" to={url} key={"box" + name} >{props.children}</Link>
+    )
+  }
+
+}
+
+function findIdInArray(item, array) {
+  let state = false
+  for (const element of array) {
+    if (element.id === item) {
+      state = true
+    }
+  }
+  return state
 }
