@@ -20,9 +20,9 @@ export default function ReviewCard(prop) {
     }
     const Star = indexRating.map((prop, index) => {
         if (prop) {
-            return <div className="material-symbols-outlined" key={index}>star</div>
+            return <div className="material-symbols-outlined rating__icon--active" key={index}>star</div>
         } else {
-            return <div className="material-symbols-outlined material-symbols-outlined--disable" key={index}>star</div>
+            return <div className="material-symbols-outlined rating__icon--disable" key={index}>star</div>
         }
     })
 
